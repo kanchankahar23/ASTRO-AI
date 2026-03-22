@@ -1,16 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
-import Footer from './components/Footer/Footer'
-import Home from './pages/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from 'react'
 
-function App() {
+import Navbar from "./components/Navbar/Navbar";
+import Home from "./pages/Home";
+import Footer from "./components/Footer/Footer";
+const App = () => {
   return (
     <Router>
-      <Navbar />
+  <Navbar/>
+      {/* <Navbar /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home/>} />
       </Routes>
-      <Footer />
+      <Footer/>
     </Router>
   )
 }

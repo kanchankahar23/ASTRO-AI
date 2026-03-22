@@ -1,9 +1,18 @@
-import React from 'react'
+import AboutUs from '../components/Home/AboutUs'
+import HeroSection from '../components/Home/Herosection'
+// import HeroSection from '../components/Home/HeroSection'
+import HoroscopeSection from '../components/Home/HoroscopeSection'
+import ServicesSection from '../components/Home/ServicesSection'
 
 const Home = () => {
-  return (
-    <div>Home</div>
-  )
+    return (
+        <div  style={{ fontFamily: "'Playfair Display', serif" }}>          
+            <HeroSection/>
+            <HoroscopeSection />
+            <AboutUs/>
+            <ServicesSection />
+        </div>
+    )
 }
 
 export default Home
