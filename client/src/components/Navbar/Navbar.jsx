@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import logo from '/restart astro/client/assets/logo.png'
+import logo from '/ASTRO-AI/client/src/assets/logo.png'
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About Us', to: '/about' },
