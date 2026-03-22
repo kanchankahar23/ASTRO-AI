@@ -1,5 +1,4 @@
-import bgImg from '/restart astro/client/assets/astrology-banner.jpg'
-import abs from '/restart astro/client/assets/astroai_robot_mascot.svg'
+import bgImg from '/ASTRO-AI/client/src/assets/astrology-banner.jpg'
 
 const HeroSection = () => {
   return (
@@ -49,7 +48,7 @@ const HeroSection = () => {
         {/* Right Image */}
         <div className="flex justify-center">
           <img
-            src={abs}
+            src=""
             alt="Astrologer"
             className="w-80 md:w-96 rounded-full shadow-2xl border-4 border-orange-400"
           />
