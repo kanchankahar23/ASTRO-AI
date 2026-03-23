@@ -1,5 +1,6 @@
 import React from 'react'
-import design from '/restart astro/client/assets/design.png'
+import design from '/ASTRO-AI/client/src/assets/design.png'
+import aboutImg from '/ASTRO-AI/client/src/assets/about-img.webp'
 const AboutUs = () => {
   return (
     <section className=" text-[#0a0a5f] py-16 px-6">
@@ -25,9 +26,9 @@ const AboutUs = () => {
         <div className="flex flex-col md:flex-row items-center gap-10">
 
           {/* Left — Astrologer Image */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:w-[500px]">
             <img
-              src="https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?w=600&q=80"
+              src={aboutImg}
               alt="Experienced Astrologer"
               className="w-full h-[500px] max-w-md mx-auto rounded-lg object-cover shadow-md"
               style={{ aspectRatio: '4/5', objectPosition: 'top' }}

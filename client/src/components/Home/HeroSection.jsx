@@ -1,19 +1,21 @@
-import bgImg from '/ASTRO-AI/client/src/assets/astrology-banner.jpg'
+import bgImg from '/ASTRO-AI/client/src/assets/astrology-banner.jpg';
+import aiAstro from '/ASTRO-AI/client/src/assets/ai-astro.jpg';
 
 const HeroSection = () => {
   return (
     <section
-    style={{backgroundImage:`url(${bgImg})`}}
-    className=" bg-cover bg-center bg-no-repeat text-white min-h-screen flex items-center">
+      style={{ backgroundImage: `url(${bgImg})` }}
+      className=" bg-cover bg-center bg-no-repeat text-white min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center py-16">
 
         {/* Left Content */}
         <div className=''>
-          <p className="font-semibold text-3xl mb-2">
-            Trust Our Astrologer
+          <p className="font-semibold text-2xl mb-2">
+            AI Powered Astrology
           </p>
           <h1 className="text-3xl md:text-5xl whitespace-nowrap  font-bold leading-tight mb-4">
-            Start Control Your <br /> Professional Destiny
+            Read your
+            Future with AI <br /> Astrologer
           </h1>
           <p className="text-gray-50 text-lg mb-8">
             Don't believe in luck. Get the right guidance according to your sign.
@@ -48,7 +50,7 @@ const HeroSection = () => {
         {/* Right Image */}
         <div className="flex justify-center">
           <img
-            src=""
+            src={aiAstro}
             alt="Astrologer"
             className="w-80 md:w-96 rounded-full shadow-2xl border-4 border-orange-400"
           />
