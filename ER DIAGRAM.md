@@ -1,4 +1,5 @@
-# AstroAI — Entity Relationship Diagram
+#  AstroAI — AI-Powered Astrology Platform 
+#  Entity Relationship Diagram
 
 ---
 
