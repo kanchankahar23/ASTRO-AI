@@ -1,4 +1,4 @@
-# 🌟 AstroAI — AI-Powered Astrology Platform
+#  AstroAI — AI-Powered Astrology Platform
 
 > A full-stack MERN application that combines traditional astrology with modern AI to deliver personalized horoscopes, birth charts, zodiac insights, and an intelligent astrology chatbot.
 
