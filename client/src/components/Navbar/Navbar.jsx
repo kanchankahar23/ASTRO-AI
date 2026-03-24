@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom'
 import logo from '/ASTRO-AI/client/src/assets/logo.png'
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
-  { label: 'About Us', to: '/about' },
 ]
 const DROPDOWNS = [
   {
@@ -96,16 +95,15 @@ const Navbar = () => {
     <nav
       ref={navRef}
       style={{ fontFamily: "'Playfair Display', serif" }}
-      className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${
-        scrolled ? 'shadow-md' : 'shadow-sm'
-      }`}
+      className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           {/* Fallback logo if image fails */}
-       <img className='w-20' src={logo} alt="" />
+          <img className='w-20' src={logo} alt="" />
           <span className="text-3xl font-bold text-[#0a0a5f] transition-colors duration-200">
             ASTRO<span className="text-orange-500">AI</span>
           </span>
@@ -118,11 +116,10 @@ const Navbar = () => {
             <li key={link.to}>
               <Link
                 to={link.to}
-                className={`px-3 py-2 rounded-md transition-colors duration-200 ${
-                  isActive(link.to)
+                className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive(link.to)
                     ? 'text-orange-500 bg-orange-50'
                     : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -134,11 +131,10 @@ const Navbar = () => {
             <li key={dd.name} className="relative">
               <button
                 onClick={() => toggleDropdown(dd.name)}
-                className={`px-3 py-2 rounded-md flex items-center gap-1.5 transition-colors duration-200 ${
-                  dropdown === dd.name
+                className={`px-3 py-2 rounded-md flex items-center gap-1.5 transition-colors duration-200 ${dropdown === dd.name
                     ? 'text-orange-500 bg-orange-50'
                     : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                }`}
+                  }`}
               >
                 {dd.label}
                 <ChevronIcon isOpen={dropdown === dd.name} />
@@ -147,18 +143,17 @@ const Navbar = () => {
               {/* Dropdown Menu */}
               {dropdown === dd.name && (
                 <ul
-                  className="absolute top-full left-0 mt-1 bg-white border border-gray-100 rounded-xl shadow-lg w-52 z-50 py-1 overflow-hidden"
+                  className="absolute top-full left-0 mt-1 bg-white border border-gray-100 rounded-xl shadow-lg w-64 z-50 py-1 overflow-hidden"
                   style={{ animation: 'dropIn 0.15s ease' }}
                 >
                   {dd.items.map((item) => (
                     <li key={item.to}>
                       <Link
                         to={item.to}
-                        className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors duration-150 ${
-                          isActive(item.to)
+                        className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors duration-150 ${isActive(item.to)
                             ? 'text-orange-500 bg-orange-50 font-medium'
                             : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </Link>
@@ -172,11 +167,10 @@ const Navbar = () => {
           <li>
             <Link
               to="/contact"
-              className={`px-3 py-2 rounded-md transition-colors duration-200 ${
-                isActive('/contact')
+              className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive('/contact')
                   ? 'text-orange-500 bg-orange-50'
                   : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-              }`}
+                }`}
             >
               Contact Us
             </Link>
@@ -199,19 +193,16 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
-              isOpen ? 'translate-y-2 rotate-45' : ''
-            }`}
+            className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? 'translate-y-2 rotate-45' : ''
+              }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
-              isOpen ? 'opacity-0' : ''
-            }`}
+            className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? 'opacity-0' : ''
+              }`}
           />
           <span
-            className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${
-              isOpen ? '-translate-y-2 -rotate-45' : ''
-            }`}
+            className={`block w-5 h-0.5 bg-gray-700 transition-all duration-300 ${isOpen ? '-translate-y-2 -rotate-45' : ''
+              }`}
           />
         </button>
       </div>
@@ -223,11 +214,10 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`px-3 py-2.5 rounded-lg transition-colors ${
-                isActive(link.to)
+              className={`px-3 py-2.5 rounded-lg transition-colors ${isActive(link.to)
                   ? 'text-orange-500 bg-orange-50 font-medium'
                   : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -242,11 +232,10 @@ const Navbar = () => {
                 <Link
                   key={item.to}
                   to={item.to}
-                  className={`block px-3 py-2 rounded-lg transition-colors ${
-                    isActive(item.to)
+                  className={`block px-3 py-2 rounded-lg transition-colors ${isActive(item.to)
                       ? 'text-orange-500 bg-orange-50 font-medium'
                       : 'text-gray-600 hover:text-orange-500 hover:bg-orange-50'
-                  }`}
+                    }`}
                 >
                   {item.label}
                 </Link>
