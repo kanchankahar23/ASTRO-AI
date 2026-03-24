@@ -15,23 +15,23 @@ const AboutUs = () => {
             <img src={design} alt="" />
           </div>
 
-          <p className="text-gray-600 text-base mt-2 max-w-xl leading-relaxed">
+          <h4 className=" text-base mt-2 max-w-xl leading-relaxed">
             AstroBuddy provides its user a chance to meet Experienced Astrologers.
             <br />
             The one who actually reads user's Kundali.
-          </p>
+          </h4>
         </div>
 
         {/* Main Content — image left, text right */}
-        <div className="flex flex-col md:flex-row items-center gap-10">
+        <div className="flex flex-col md:flex-row items-center gap-20">
 
           {/* Left — Astrologer Image */}
-          <div className="w-full md:w-[500px]">
+          <div className="w-full md:w-[600px]">
             <img
               src={aboutImg}
               alt="Experienced Astrologer"
-              className="w-full h-[500px] max-w-md mx-auto rounded-lg object-cover shadow-md"
-              style={{ aspectRatio: '4/5', objectPosition: 'top' }}
+              className="w-full h-[300px] md: h-[400px] max-w-full mx-auto rounded-lg object-cover shadow-md"
+              style={{ aspectRatio: '3/5', objectPosition: 'top' }}
             />
           </div>
 
