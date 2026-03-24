@@ -20,6 +20,36 @@ const services = [
     title: 'Signature Reading',
     desc: 'Signature Analysis Personality Test for deep insights.'
   },
+   {
+    icon: '🔢',
+    title: 'Numerology',
+    desc: 'Get life path insights with Number symbolism and patterns.'
+  },
+  {
+    icon: '✋',
+    title: 'Palmistry',
+    desc: 'Read your future through the lines and mounts of your palm.'
+  },
+  {
+    icon: '✍️',
+    title: 'Signature Reading',
+    desc: 'Signature Analysis Personality Test for deep insights.'
+  },
+   {
+    icon: '🔢',
+    title: 'Numerology',
+    desc: 'Get life path insights with Number symbolism and patterns.'
+  },
+  {
+    icon: '✋',
+    title: 'Palmistry',
+    desc: 'Read your future through the lines and mounts of your palm.'
+  },
+  {
+    icon: '✍️',
+    title: 'Signature Reading',
+    desc: 'Signature Analysis Personality Test for deep insights.'
+  },
 ]
 
 const ServicesSection = () => {
@@ -45,7 +75,7 @@ const ServicesSection = () => {
           {services.map((service) => (
             <div
               key={service.title}
-              className="bg-gray-800 hover:bg-orange-500 transition rounded-xl p-6 text-center group cursor-pointer"
+              className="bg-zinc-100 hover:bg-orange-500 transition rounded-xl p-6 text-center group cursor-pointer"
             >
               <div className="text-5xl mb-4">{service.icon}</div>
               <h3 className="text-xl font-bold mb-2">{service.title}</h3>
