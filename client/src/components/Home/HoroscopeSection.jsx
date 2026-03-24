@@ -30,14 +30,14 @@ const signs = [
 
 const HoroscopeSection = () => {
   return (
-    <section className="bg-[#f9f6f0] text-[#0a0a5f] py-16 px-6">
+    <section className="bg-[#f8f1e2] text-[#0a0a5f] py-16 px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
         <div className="text-center mb-12 flex justify-center items-center flex-col">
           <h2 className="text-3xl font-bold mb-2">Horoscope Forecasts</h2>
           <img className='mt-2' src={design} alt="" />
-          <p className='mt-3'>It is a long established fact that a reader will be distracted by the readable content of a page <br /> when looking at its layout. The point of using Lorem Ipsum</p>
+          <h4 className='mt-3'>It is a long established fact that a reader will be distracted by the readable content of a page <br /> when looking at its layout. The point of using Lorem Ipsum</h4>
         </div>
 
         {/* Signs Grid */}
@@ -45,11 +45,11 @@ const HoroscopeSection = () => {
           {signs.map((sign) => (
             <div
               key={sign.name}
-              className="bg-white hover:bg-orange-500 transition cursor-pointer rounded-xl p-4 text-center flex justify-center items-center flex-col group"
+              className="bg-white border-2 border-transparent hover:border-orange-700 transition-all duration-300 ease-in-out cursor-pointer rounded-xl p-4 text-center flex justify-center items-center flex-col group"
             >
               <img className='w-15 h-15 rounded-full bg-[#ffff] p-3 ' src={sign.symbol} alt="" />
               <h3 className="font-semibold mt-3 text-sm">{sign.name}</h3>
-              <p className="text-xs text-gray-600 group-hover:text-white mt-1">{sign.date}</p>
+              <h5 className="text-xs text-gray-600  mt-1">{sign.date}</h5>
             </div>
           ))}
         </div>
