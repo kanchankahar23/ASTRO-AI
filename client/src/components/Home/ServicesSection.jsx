@@ -1,3 +1,4 @@
+import design from '/ASTRO-AI/client/src/assets/design.png'
 const services = [
   {
     icon: '🌟',
@@ -23,17 +24,20 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section className="bg-gray-900 text-white py-16 px-6">
+    <section className=" py-10 px-6">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-2">Our Services</h2>
-          <div className="w-16 h-1 bg-orange-400 mx-auto mb-4"></div>
-          <p className="text-gray-400 max-w-xl mx-auto">
+        <div className="text-center mb-12 flex flex-col justify-center items-center">
+          <h2 className="text-3xl text-center text-[#0a0a5f] font-bold mb-2">Our Services</h2>
+          <div>
+  <img className='mt-3 text-center' src={design} alt="" />
+          </div>
+        
+          <h4 className="text-[#0a0a5f] max-w-xl mx-auto mt-5">
             Harmony crafts spaces aligning Vastu, Astrology, and Numerology,
             fostering positive energy and well-being in every design.
-          </p>
+          </h4>
         </div>
 
         {/* Services Grid */}
