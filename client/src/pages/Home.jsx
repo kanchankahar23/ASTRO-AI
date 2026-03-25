@@ -6,7 +6,7 @@ import ServicesSection from '../components/Home/ServicesSection'
 
 const Home = () => {
     return (
-        <div  style={{ fontFamily: "'Playfair Display', serif" }}>          
+        <div  style={{ fontFamily: "Arial,Helvetica,sans-serif" }}>          
             <HeroSection/>
             <HoroscopeSection />
             <AboutUs/>
