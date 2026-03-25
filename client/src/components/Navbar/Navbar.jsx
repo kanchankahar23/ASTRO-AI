@@ -94,7 +94,7 @@ const Navbar = () => {
   return (
     <nav
       ref={navRef}
-      style={{ fontFamily: "'Playfair Display', serif" }}
+      style={{ fontFamily: "Arial,Helvetica,sans-serif" }}
       className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'
         }`}
     >
@@ -103,7 +103,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           {/* Fallback logo if image fails */}
-          <img className='w-20' src={logo} alt="" />
+          <img className='w-16' src={logo} alt="" />
           <span className="text-3xl font-bold text-[#0a0a5f] transition-colors duration-200">
             ASTRO<span className="text-orange-500">AI</span>
           </span>
