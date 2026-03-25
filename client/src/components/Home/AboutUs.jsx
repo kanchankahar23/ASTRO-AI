@@ -62,11 +62,11 @@ const AboutUs = () => {
 
           {/* Left — Image slides in from left */}
           <AnimateOnScroll delay={0.1} direction="right">
-            <div className="w-full md:w-[600px]">
+            <div className="w-full sm:w-[800px] md:w-[600px]">
               <motion.img
                 src={aboutImg}
                 alt="Experienced Astrologer"
-                className="w-full h-[300px] md:h-[400px] max-w-full mx-auto rounded-lg object-cover shadow-md"
+                className="w-full h-[300px]  md:h-[400px] max-w-full mx-auto rounded-lg object-cover shadow-md"
                 style={{ aspectRatio: '3/5', objectPosition: 'top' }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
