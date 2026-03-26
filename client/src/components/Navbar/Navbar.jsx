@@ -20,7 +20,7 @@ const DROPDOWNS = [
     items: [
       { label: 'Numerology', to: '/numerology' },
       { label: 'Daily Panchang', to: '/panchang' },
-      { label: "Get Yoga's", to: '/get-yogas' },
+ 
     ],
   },
   {
@@ -29,7 +29,7 @@ const DROPDOWNS = [
     items: [
       { label: 'Free Kundli', to: '/kundli/free' },
       { label: 'Kundli Matching', to: '/kundli/matching' },
-      { label: 'Premium Kundli', to: '/kundli/premium' },
+     
     ],
   },
 ]
@@ -117,8 +117,8 @@ const Navbar = () => {
               <Link
                 to={link.to}
                 className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive(link.to)
-                    ? 'text-orange-500 bg-orange-50'
-                    : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
+                  ? 'text-orange-500 bg-orange-50'
+                  : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
                   }`}
               >
                 {link.label}
@@ -132,8 +132,8 @@ const Navbar = () => {
               <button
                 onClick={() => toggleDropdown(dd.name)}
                 className={`px-3 py-2 rounded-md flex items-center gap-1.5 transition-colors duration-200 ${dropdown === dd.name
-                    ? 'text-orange-500 bg-orange-50'
-                    : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
+                  ? 'text-orange-500 bg-orange-50'
+                  : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
                   }`}
               >
                 {dd.label}
@@ -151,8 +151,8 @@ const Navbar = () => {
                       <Link
                         to={item.to}
                         className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors duration-150 ${isActive(item.to)
-                            ? 'text-orange-500 bg-orange-50 font-medium'
-                            : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
+                          ? 'text-orange-500 bg-orange-50 font-medium'
+                          : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
                           }`}
                       >
                         {item.label}
@@ -168,8 +168,8 @@ const Navbar = () => {
             <Link
               to="/contact"
               className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive('/contact')
-                  ? 'text-orange-500 bg-orange-50'
-                  : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
+                ? 'text-orange-500 bg-orange-50'
+                : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
                 }`}
             >
               Contact Us
@@ -215,8 +215,8 @@ const Navbar = () => {
               key={link.to}
               to={link.to}
               className={`px-3 py-2.5 rounded-lg transition-colors ${isActive(link.to)
-                  ? 'text-orange-500 bg-orange-50 font-medium'
-                  : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
+                ? 'text-orange-500 bg-orange-50 font-medium'
+                : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
                 }`}
             >
               {link.label}
@@ -233,8 +233,8 @@ const Navbar = () => {
                   key={item.to}
                   to={item.to}
                   className={`block px-3 py-2 rounded-lg transition-colors ${isActive(item.to)
-                      ? 'text-orange-500 bg-orange-50 font-medium'
-                      : 'text-gray-600 hover:text-orange-500 hover:bg-orange-50'
+                    ? 'text-orange-500 bg-orange-50 font-medium'
+                    : 'text-gray-600 hover:text-orange-500 hover:bg-orange-50'
                     }`}
                 >
                   {item.label}
