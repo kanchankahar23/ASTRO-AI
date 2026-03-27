@@ -7,7 +7,7 @@ const Footer = () => {
 
         {/* Column 1 - Logo & Tagline */}
         <div>
-          <h2 className="text-2xl font-bold text-orange-400 mb-3">🔮 AstroBuddy</h2>
+          <h2 className="text-2xl font-bold text-orange-400 mb-3">ASTRO AI</h2>
           <p className="text-sm text-gray-400 italic">
             "Astrology reveals the will of the gods. If you understand this language, the sky speaks to you."
           </p>
