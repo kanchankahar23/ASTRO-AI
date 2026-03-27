@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '/ASTRO-AI/client/src/assets/logo.png'
+import { Sun } from 'lucide-react'
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
 ]
@@ -18,18 +19,11 @@ const DROPDOWNS = [
     name: 'services',
     label: 'Services',
     items: [
-      { label: 'Numerology', to: '/numerology' },
-      { label: 'Daily Panchang', to: '/panchang' },
- 
-    ],
-  },
-  {
-    name: 'kundli',
-    label: 'Kundli',
-    items: [
-      { label: 'Free Kundli', to: '/kundli/free' },
-      { label: 'Kundli Matching', to: '/kundli/matching' },
-     
+      { label: 'Numerology', to: 'servics/numerology' },
+      { label: 'Panchang', to: 'servics/panchang' },
+      { label: 'Calculator', to: 'servics/calculator' },
+      { label: 'Free Kundli', to: 'servics/kundli/free' },
+      { label: 'Kundli Matching', to: 'servics/kundli/matching' },
     ],
   },
 ]
@@ -110,7 +104,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex items-center text-sm font-bold gap-1">
+        <ul className="hidden md:flex items-center text-sm font-bold gap-5">
 
           {NAV_LINKS.map((link) => (
             <li key={link.to}>
@@ -179,10 +173,16 @@ const Navbar = () => {
           <li className="ml-2">
             <Link
               to="/login"
-              className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-5 py-2 rounded-full transition-colors duration-200 font-semibold text-sm"
+              className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-8 py-3 rounded-md transition-colors duration-200 font-semibold text-sm"
             >
               Log In
             </Link>
+          </li>
+          <li>
+
+            <div className='bg-zinc-200 p-2 rounded-md '>
+              <Sun className='text-orange-600' />
+            </div>
           </li>
         </ul>
 
@@ -249,15 +249,16 @@ const Navbar = () => {
           >
             Contact Us
           </Link>
-
-          <div className="pt-2">
-            <Link
-              to="/login"
-              className="block bg-orange-500 hover:bg-orange-600 text-white px-8 py-5 rounded-full text-center font-semibold transition-colors"
-            >
-              Log In
-            </Link>
+          <Link
+            to="/login"
+            className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 sm:px-2 sm:py-2  text-white md:px-8 md:py-3 rounded-md transition-colors duration-200 font-semibold text-sm"
+          >
+            Log In
+          </Link>
+          <div className='bg-zinc-200 p-2 rounded-md '>
+            <Sun className='text-orange-600' />
           </div>
+
         </div>
       )}
 
