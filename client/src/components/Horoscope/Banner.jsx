@@ -15,6 +15,7 @@ import sagittarius from '/ASTRO-AI/client/src/assets/sagittairus.svg'
 import capricorn from '/ASTRO-AI/client/src/assets/capricorn.svg'
 import aquarius from '/ASTRO-AI/client/src/assets/aquarius.svg'
 import pisces from '/ASTRO-AI/client/src/assets/pisces.svg'
+import kundali_banner from '/ASTRO-AI/client/src/assets/Kundali_banner.avif'
 
 const signs = [
     { name: 'Aries', symbol: aries, date: 'Mar 21 - Apr 19' },
@@ -56,11 +57,25 @@ const Banner = () => {
     return (
         <div className="">
 
-            <div className='h-72 bg-amber-950 flex justify-center items-center bg-[url("https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bmF0dXJlfGVufDB8fDB8fHww")]'>
+            <div className='h-72 relative flex justify-center items-center'>
+
+                {/* Background Image */}
+                <div className='absolute inset-0'>
+                    <img
+                        src={kundali_banner}
+                        alt="planets background"
+                        className="w-full h-full object-cover object-center"
+                    />
+                </div>
+
+                {/* Dark overlay so text is readable */}
+                <div className='absolute inset-0 bg-black/50' />
+
                 {/* Heading */}
-                <h1 className="text-2xl md:text-3xl font-bold text-center mb-8">
-                    AstroBuddy Daily Horoscope
+                <h1 className="relative z-10 text-2xl md:text-5xl font-bold text-center text-white">
+                    Astro <span className='text-orange-400'>AI</span> Daily Horoscope
                 </h1>
+
             </div>
             {/* Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 md:gap-6 px-8 md:px-36 mt-10">
