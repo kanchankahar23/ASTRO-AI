@@ -15,18 +15,18 @@ import aquarius from '/ASTRO-AI/client/src/assets/aquarius.svg'
 import pisces from '/ASTRO-AI/client/src/assets/pisces.svg'
 
 const signs = [
-  { name: 'Aries',       symbol: aries,       date: 'Mar 21 - Apr 19' },
-  { name: 'Taurus',      symbol: Taurus,      date: 'Apr 20 - May 20' },
-  { name: 'Gemini',      symbol: gemini,      date: 'May 21 - Jun 20' },
-  { name: 'Cancer',      symbol: cancer,      date: 'Jun 21 - Jul 22' },
-  { name: 'Leo',         symbol: leo,         date: 'Jul 23 - Aug 22' },
-  { name: 'Virgo',       symbol: virgo,       date: 'Aug 23 - Sep 22' },
-  { name: 'Libra',       symbol: libra,       date: 'Sep 23 - Oct 22' },
-  { name: 'Scorpio',     symbol: Scorpio,     date: 'Oct 23 - Nov 21' },
+  { name: 'Aries', symbol: aries, date: 'Mar 21 - Apr 19' },
+  { name: 'Taurus', symbol: Taurus, date: 'Apr 20 - May 20' },
+  { name: 'Gemini', symbol: gemini, date: 'May 21 - Jun 20' },
+  { name: 'Cancer', symbol: cancer, date: 'Jun 21 - Jul 22' },
+  { name: 'Leo', symbol: leo, date: 'Jul 23 - Aug 22' },
+  { name: 'Virgo', symbol: virgo, date: 'Aug 23 - Sep 22' },
+  { name: 'Libra', symbol: libra, date: 'Sep 23 - Oct 22' },
+  { name: 'Scorpio', symbol: Scorpio, date: 'Oct 23 - Nov 21' },
   { name: 'Sagittarius', symbol: Sagittarius, date: 'Nov 22 - Dec 21' },
-  { name: 'Capricorn',   symbol: capricorn,   date: 'Dec 22 - Jan 19' },
-  { name: 'Aquarius',    symbol: aquarius,    date: 'Jan 20 - Feb 18' },
-  { name: 'Pisces',      symbol: pisces,      date: 'Feb 19 - Mar 20' },
+  { name: 'Capricorn', symbol: capricorn, date: 'Dec 22 - Jan 19' },
+  { name: 'Aquarius', symbol: aquarius, date: 'Jan 20 - Feb 18' },
+  { name: 'Pisces', symbol: pisces, date: 'Feb 19 - Mar 20' },
 ]
 
 // ── Reusable scroll-trigger wrapper ──────────────────────────────────────────
