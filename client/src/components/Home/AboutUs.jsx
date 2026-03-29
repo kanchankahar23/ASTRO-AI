@@ -113,7 +113,7 @@ const AboutUs = () => {
                 </motion.div>
                 <div>
                   <p className="text-gray-500 text-sm">That Is What Makes Us</p>
-                  <p className="text-[#0a0a5f] text-xl font-bold">Astro Buddy</p>
+                  <p className="text-[#0a0a5f] text-xl font-bold">ASTRO AI</p>
                 </div>
               </motion.div>
             </AnimateOnScroll>
