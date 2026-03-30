@@ -72,8 +72,7 @@ const HoroscopeSection = () => {
 
           <AnimateOnScroll delay={0.2} direction="up">
             <h4 className="mt-3">
-              It is a long established fact that a reader will be distracted by the readable
-              content of a page <br /> when looking at its layout. The point of using Lorem Ipsum
+                Stay ahead with accurate, AI-powered horoscope predictions tailored to your zodiac sign. <br /> Get daily insights, guidance, and clarity to make better life decisions.
             </h4>
           </AnimateOnScroll>
 
