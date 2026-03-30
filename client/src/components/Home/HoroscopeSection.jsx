@@ -56,7 +56,7 @@ const AnimateOnScroll = ({ children, delay = 0, direction = 'up' }) => {
 
 const HoroscopeSection = () => {
   return (
-    <section className="bg-[#f8f1e2] text-[#0a0a5f] py-16 px-6">
+    <section className=" text-[#0a0a5f] py-24 px-3">
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
@@ -87,23 +87,23 @@ const HoroscopeSection = () => {
               direction="scale"      // cards pop in with a scale effect
             >
               <motion.div
-                whileHover={{ scale: 1.08, y: -5 }}
+                whileHover={{ scale: 1.00, y: -3 }}
                 whileTap={{ scale: 0.94 }}
                 transition={{ type: 'spring', stiffness: 280, damping: 18 }}
-                className="bg-white border-2 border-transparent hover:border-orange-700
-                           transition-colors duration-300 cursor-pointer rounded-xl p-4
+                className="group bg-white border-2 border-zinc-200 hover:border-orange-400
+                           transition-colors duration-500 cursor-pointer rounded-xl p-4
                            text-center flex justify-center items-center flex-col group"
               >
                 {/* SVG icon — spins gently on hover */}
                 <motion.img
-                  className="w-15 h-15 rounded-full bg-white p-3"
+                  className="w-15 h-15 rounded-full bg-orange-50  p-3"
                   src={sign.symbol}
                   alt={sign.name}
                   whileHover={{ rotate: 15 }}
                   transition={{ type: 'spring', stiffness: 200 }}
                 />
-                <h3 className="font-semibold mt-3 text-sm">{sign.name}</h3>
-                <h5 className="text-xs text-gray-600 mt-1">{sign.date}</h5>
+                <h3 className="group-hover:text-orange-500 font-semibold mt-3 text-[15px]">{sign.name}</h3>
+                <h5 className="text-[12px] text-gray-600 mt-1">{sign.date}</h5>
               </motion.div>
             </AnimateOnScroll>
           ))}
