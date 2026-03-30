@@ -49,9 +49,8 @@ const AboutUs = () => {
 
           <AnimateOnScroll delay={0.2} direction="up">
             <h4 className="text-base mt-2 max-w-xl leading-relaxed">
-              AstroBuddy provides its user a chance to meet Experienced Astrologers.
-              <br />
-              The one who actually reads user's Kundali.
+        A smart astrology platform providing accurate and personalized <br /> predictions using AI.
+              
             </h4>
           </AnimateOnScroll>
 
