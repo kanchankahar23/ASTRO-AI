@@ -46,9 +46,9 @@ const HeroSection = () => {
   return (
     <section
       style={{ backgroundImage: `url(${bgImg})` }}
-      className="bg-cover bg-center bg-no-repeat text-white min-h-screen flex items-center"
+      className="bg-cover bg-center bg-no-repeat text-white  flex items-center"
     >
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center py-10">
+      <div className="max-w-7xl  mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center py-30 ">
 
         {/* Left Content */}
         <div className='mt-10'>
@@ -69,7 +69,7 @@ const HeroSection = () => {
 
           {/* Description */}
           <AnimateOnScroll delay={0.3} direction="up">
-            <p className="text-gray-50 text-lg mb-8">
+            <p className=" text-lg mb-8">
               Go beyond belief. Experience predictions that are calculated, personalized, and designed to guide your decisions with confidence.
             </p>
           </AnimateOnScroll>
