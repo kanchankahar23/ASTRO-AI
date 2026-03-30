@@ -139,7 +139,7 @@ const ServicesSection = () => {
         <div className="text-center mb-10 sm:mb-12 lg:mb-16 flex flex-col items-center">
 
           <AnimateOnScroll delay={0} direction="up">
-            <h2 className="text-3xl font-bold mb-2">Horoscope Forecasts</h2>
+            <h2 className="text-3xl font-bold mb-2">Our Services</h2>
           </AnimateOnScroll>
 
           <AnimateOnScroll delay={0.1} direction="up">
@@ -149,8 +149,7 @@ const ServicesSection = () => {
 
           <AnimateOnScroll delay={0.2} direction="up">
             <h4 className="mt-3 text-[#0a0a5f]">
-              It is a long established fact that a reader will be distracted by the readable
-              content of a page <br /> when looking at its layout. The point of using Lorem Ipsum
+              We offer a wide range of astrology services including horoscope readings, kundli analysis, and <br /> personalized predictions  to guide you in every aspect of life.
             </h4>
           </AnimateOnScroll>
         </div>
