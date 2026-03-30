@@ -19,11 +19,11 @@ const DROPDOWNS = [
     name: 'services',
     label: 'Services',
     items: [
-      { label: 'Numerology', to: 'servics/numerology' },
-      { label: 'Panchang', to: 'servics/panchang' },
-      { label: 'Calculator', to: 'servics/calculator' },
-      { label: 'Free Kundli', to: '/kundli' },
-      { label: 'Kundli Matching', to: 'servics/kundli/matching' },
+      { label: 'Numerology', to: 'services/numerology' },
+      { label: 'Panchang', to: 'services/panchang' },
+      { label: 'Calculator', to: 'services/calculator' },
+      { label: 'Free Kundli', to: '/services/Kundali' },
+      { label: 'Kundli Matching', to: 'services/Kundali_Matching' },
     ],
   },
 ]
