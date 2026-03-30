@@ -10,8 +10,8 @@ const AnimateOnScroll = ({ children, delay = 0, direction = 'up' }) => {
 
   const initial = {
     opacity: 0,
-    y: direction === 'up'    ?  40 : direction === 'down' ? -40 : 0,
-    x: direction === 'left'  ?  60 : direction === 'right'? -60 : 0,
+    y: direction === 'up' ? 40 : direction === 'down' ? -40 : 0,
+    x: direction === 'left' ? 60 : direction === 'right' ? -60 : 0,
     scale: direction === 'scale' ? 0.9 : 1,
   }
 
@@ -49,8 +49,7 @@ const AboutUs = () => {
 
           <AnimateOnScroll delay={0.2} direction="up">
             <h4 className="text-base mt-2 max-w-xl leading-relaxed">
-        A smart astrology platform providing accurate and personalized <br /> predictions using AI.
-              
+              A smart astrology platform providing accurate and personalized <br /> predictions using AI.
             </h4>
           </AnimateOnScroll>
 
