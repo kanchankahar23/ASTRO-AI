@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import bgImg from '/ASTRO-AI/client/src/assets/astrology-banner.jpg';
 import aiAstro from '/ASTRO-AI/client/src/assets/ai-astro.jpg';
+import { MoveRight } from 'lucide-react';
 
 // Reusable animated wrapper — re-animates every time it enters view
 const AnimateOnScroll = ({ children, delay = 0, direction = 'up' }) => {
@@ -81,15 +82,16 @@ const HeroSection = () => {
                 href="#services"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-orange-500 hover:bg-orange-600 text-white px-9 py-3 rounded-md font-semibold transition"
+                className="bg-orange-500 flex gap-2 hover:bg-orange-600 text-white text-xl px-9 py-3 rounded-md font-semibold transition"
               >
-                Chat Now
+                Chat With Kaira 
               </motion.a>
+        
               <motion.a
                 href="#astrologers"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border border-orange-400 text-orange-400 hover:bg-orange-400 hover:text-white px-9 py-3 rounded-md font-semibold transition"
+                className="border border-orange-400 text-orange-400 text-xl hover:bg-orange-400 hover:text-white px-9 py-3 rounded-md font-semibold transition"
               >
                 Sign Up
               </motion.a>
