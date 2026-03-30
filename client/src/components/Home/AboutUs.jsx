@@ -97,7 +97,7 @@ const AboutUs = () => {
               >
                 {/* Icon circle */}
                 <motion.div
-                  className="w-18 h-18 rounded-full bg-[#f3e8d0] flex items-center justify-center flex-shrink-0"
+                  className="w-18 h-18 rounded-full bg-orange-50 flex items-center justify-center flex-shrink-0"
                   whileHover={{ rotate: 10, scale: 1.1 }}
                   transition={{ type: 'spring', stiffness: 250 }}
                 >
