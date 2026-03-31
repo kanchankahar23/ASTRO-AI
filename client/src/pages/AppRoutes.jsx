@@ -5,39 +5,44 @@ import Home from './Home'
 import Horoscope from './Horoscope'
 
 // Service pages
-import Kundali from './Services/Kundali'
+
 import Numerology from './Services/Numerology'
 import Panchang from './Services/Panchang'
 import Calculator from './Services/Calculator'
-import KundaliMatching from './Services/Kundali_Matching'
 
 
 // Contact
 import Contact from './Contact'
+import Kundali from './services/Kundali'
+import KundaliMatching from './Services/KundaliMatching'
+
 
 const AppRoutes = () => {
     return (
         <Routes>
+
             {/* Main pages */}
             <Route path="/" element={<Home />} />
             <Route path="/horoscope/:type" element={<Horoscope />} />
 
-            {/* Service pages */}
-            <Route path="services/Kundali" element={<Kundali />} />
-            <Route path="services/Numerology" element={<Numerology />} />
-            <Route path="services/Panchang" element={<Panchang />} />
-            <Route path="services/Calculator" element={<Calculator />} />
-            <Route path="services/Kundali-Matching" element={<KundaliMatching />} />
+            {/* Services */}
+            <Route path="/services/kundali" element={<Kundali/>} />
+            <Route path="/services/numerology" element={<Numerology />} />
+            <Route path="/services/panchang" element={<Panchang />} />
+            <Route path="/services/calculator" element={<Calculator />} />
+            <Route path="/services/kundali-matching" element={<KundaliMatching/>} />
 
-            <Route path='/contact' element={<Contact />}/>
+            {/* Contact */}
+            <Route path="/contact" element={<Contact />} />
 
-                {/* 404 fallback */}
-                {/* <Route path="*" element={
+            {/* 404 */}
+            <Route path="*" element={
                 <div className="flex flex-col items-center justify-center min-h-screen text-center">
                     <h1 className="text-4xl font-bold text-purple-700">404</h1>
                     <p className="text-gray-500 mt-2">Page not found</p>
                 </div>
-            } /> */}
+            } />
+
         </Routes>
     )
 }
