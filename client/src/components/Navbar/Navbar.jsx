@@ -23,7 +23,7 @@ const DROPDOWNS = [
       { label: 'Panchang', to: 'services/panchang' },
       { label: 'Calculator', to: 'services/calculator' },
       { label: 'Free Kundli', to: '/services/Kundali' },
-      { label: 'Kundli Matching', to: 'services/Kundali_Matching' },
+      { label: 'Kundli Matching', to: '/services/kundali-matching' },
     ],
   },
 ]
