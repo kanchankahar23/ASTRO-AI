@@ -35,6 +35,9 @@ const AppRoutes = () => {
             {/* Contact */}
             <Route path="/contact" element={<Contact />} />
 
+  {/* add these 2 new routes */}
+      <Route path="/sign-in/*" element={<SignInPage />} />
+      <Route path="/sign-up/*" element={<SignUpPage />} />
             {/* 404 */}
             <Route path="*" element={
                 <div className="flex flex-col items-center justify-center min-h-screen text-center">
