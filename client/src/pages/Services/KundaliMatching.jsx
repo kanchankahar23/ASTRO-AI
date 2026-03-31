@@ -89,7 +89,7 @@ const KundaliMatching = () => {
                   <input
                     type={
                       field === "dob" ? "date" :
-                      field === "time" ? "time" : "text"
+                        field === "time" ? "time" : "text"
                     }
                     name={field}
                     placeholder={`Enter ${field}`}
@@ -102,24 +102,25 @@ const KundaliMatching = () => {
             </div>
 
             {/* Female Section */}
+            {/* Female Section */}
             <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
-              <h2 className="font-semibold text-xl mb-6 text-pink-500">
+              <h2 className="font-semibold text-2xl mb-6 text-[#0a0a5f]">
                 👩 Female Details
               </h2>
 
               {["name", "dob", "time", "place"].map((field) => (
                 <div key={field} className="mb-4 flex flex-col">
-                  <label className="text-sm font-medium capitalize text-gray-600">
+                  <label className="text-[17px] font-medium capitalize text-[#0a0a5f]">
                     {field}
                   </label>
                   <input
                     type={
                       field === "dob" ? "date" :
-                      field === "time" ? "time" : "text"
+                        field === "time" ? "time" : "text"
                     }
                     name={field}
                     placeholder={`Enter ${field}`}
-                    className="border border-gray-200 p-3 rounded-lg mt-1 focus:ring-2 focus:ring-pink-400 focus:outline-none"
+                    className="border border-gray-300 p-3 rounded-sm mt-1 focus:ring-1 focus:ring-orange-400 focus:outline-none"
                     value={female[field]}
                     onChange={(e) => handleChange(e, "female")}
                   />
@@ -129,8 +130,8 @@ const KundaliMatching = () => {
 
             {/* Button */}
             <div className="col-span-2 text-center mt-6">
-              <button className="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-10 py-3 rounded-full text-lg font-medium shadow-md hover:scale-105 transition duration-300">
-                🔮 Match Kundali
+              <button className="bg-orange-500 text-white px-10 py-3 rounded-md text-lg font-medium shadow-md hover:scale-105 transition duration-300">
+               Match Kundali
               </button>
             </div>
 
