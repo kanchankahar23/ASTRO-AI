@@ -15,6 +15,8 @@ import Calculator from './Services/Calculator'
 import Contact from './Contact'
 import Kundali from './services/Kundali'
 import KundaliMatching from './Services/KundaliMatching'
+import SignInPage from './SignIn'
+import SignUpPage from './SignUp'
 
 
 const AppRoutes = () => {
@@ -36,8 +38,8 @@ const AppRoutes = () => {
             <Route path="/contact" element={<Contact />} />
 
   {/* add these 2 new routes */}
-      <Route path="/sign-in/*" element={<SignInPage />} />
-      <Route path="/sign-up/*" element={<SignUpPage />} />
+      <Route path="/sign-in/*" element={<SignInPage/>} />
+      <Route path="/sign-up/*" element={<SignUpPage/>} />
             {/* 404 */}
             <Route path="*" element={
                 <div className="flex flex-col items-center justify-center min-h-screen text-center">
