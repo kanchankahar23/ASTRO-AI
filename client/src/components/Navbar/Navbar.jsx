@@ -181,7 +181,7 @@ const Navbar = () => {
         <div className='flex gap-2'>
           <div className="mt-2 mr-4 hidden md:block">
             <Link
-              to="/login"
+              to="/xyz"
               className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-8 py-3 rounded-md transition-colors duration-200 font-semibold text-sm"
             >
               Log In
