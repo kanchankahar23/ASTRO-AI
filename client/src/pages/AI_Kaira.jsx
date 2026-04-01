@@ -6,18 +6,18 @@ import kanchan from '/ASTRO-AI/client/src/assets/kanchan.jpeg'
 
 const AI_Kaira = () => {
     return (
-        <div className="flex h-[600px] gap-6 p-4 bg-gray-100">
+        <div className="flex h-[600px] gap-6 p-4 bg-gray-100 " >
 
             {/* 🔶 Sidebar */}
             <div className="w-64 bg-white shadow-md p-4 flex flex-col rounded-xl">
-                <h1 className="text-3xl font-bold text-gray-800 text-center font-serif">
+                <h1 className="text-3xl font-bold text-[#0a0a5f] text-center font-serif">
                     Kaira <span className="text-orange-500">AI</span>
                 </h1>
                 <button className="bg-orange-500 text-white py-2 mt-3 rounded-lg mb-4 hover:bg-orange-600 transition">
                     + New Chat
                 </button>
 
-                <h1 className="font-semibold text-sm text-gray-700 mb-2">Your Chat History</h1>
+                <h1 className="font-semibold text-sm text-[#0a0a5f] mb-2">Your Chat History</h1>
                 <hr className="mb-3 bg-grey-100" />
 
                 <div className="space-y-2 text-sm text-gray-700">
@@ -28,7 +28,8 @@ const AI_Kaira = () => {
             </div>
 
             {/* 🔷 Chat Section */}
-            <div className="flex-1 bg-white rounded-xl shadow-md flex flex-col justify-between p-6">
+            <div
+                className="flex-1 bg-white rounded-xl shadow-md flex flex-col justify-between p-6">
 
                 {/* Chat messages */}
                 <div className="space-y-6 overflow-y-auto flex-1">
@@ -38,8 +39,8 @@ const AI_Kaira = () => {
                         <div className="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
                             <img src={kaira} alt="AI" />
                         </div>
-                        <div className="bg-gray-100 p-3 rounded-xl max-w-md">
-                            <p className="text-gray-700 text-sm">
+                        <div className="bg-gray-200 p-3 rounded-xl max-w-md">
+                            <p className="text-[#0a0a5f] font-semibold text-sm">
                                 Hello Kanchan! How can I help you today?
                             </p>
                         </div>
@@ -47,8 +48,8 @@ const AI_Kaira = () => {
 
                     {/* User Message */}
                     <div className="flex items-start gap-3 justify-end">
-                        <div className="border border-orange-500 text-grey-800  bg-orange-50 p-3 rounded-xl max-w-md">
-                            <p className="text-sm">
+                        <div className="border border-orange-500 text-grey-800  bg-orange-100 p-3 rounded-xl max-w-md">
+                            <p className="text-sm text-[#d74b00] font-semibold">
                                 Tell me about my kundali Lorem ipsum dolor sit amet consectetur.
                             </p>
                         </div>
@@ -72,7 +73,7 @@ const AI_Kaira = () => {
                 </div>
             </div>
 
-            {/* 🔮 Kundali Card */}
+            {/*  Kundali Card */}
             <div className="w-80 h-48 bg-white p-6 rounded-2xl shadow-lg">
                 <h1 className="text-xl font-semibold text-center mb-4 text-orange-500">
                     Kanchan Kahar
@@ -80,22 +81,22 @@ const AI_Kaira = () => {
 
                 <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                        <p className="text-gray-500">Date</p>
+                        <p className="text-[#0a0a5f]">Date</p>
                         <p className="font-medium">22-08-2003</p>
                     </div>
 
                     <div>
-                        <p className="text-gray-500">Time</p>
+                        <p className="text-[#0a0a5f]">Time</p>
                         <p className="font-medium">10:30 PM</p>
                     </div>
 
                     <div>
-                        <p className="text-gray-500">Location</p>
+                        <p className="text-[#0a0a5f]">Location</p>
                         <p className="font-medium">Bhopal</p>
                     </div>
 
                     <div>
-                        <p className="text-gray-500">Sign</p>
+                        <p className="text-[#0a0a5f]">Sign</p>
                         <p className="font-medium text-orange-500">
                             Gemini ♊
                         </p>
