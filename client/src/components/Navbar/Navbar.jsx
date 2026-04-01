@@ -21,6 +21,7 @@ const DROPDOWNS = [
     items: [
       { label: 'Numerology', to: 'services/numerology' },
       { label: 'Panchang', to: 'services/panchang' },
+      {label:'AI Kaira' , to: '/services/AI-Kaira'},
       { label: 'Calculator', to: 'services/calculator' },
       { label: 'Free Kundli', to: '/services/Kundali' },
       { label: 'Kundli Matching', to: '/services/kundali-matching' },
