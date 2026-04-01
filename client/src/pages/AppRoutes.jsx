@@ -17,6 +17,7 @@ import Kundali from './services/Kundali'
 import KundaliMatching from './Services/KundaliMatching'
 import SignInPage from './SignIn'
 import SignUpPage from './SignUp'
+import AI_Kaira from './AI_Kaira'
 
 
 const AppRoutes = () => {
@@ -28,18 +29,19 @@ const AppRoutes = () => {
             <Route path="/horoscope/:type" element={<Horoscope />} />
 
             {/* Services */}
-            <Route path="/services/kundali" element={<Kundali/>} />
+            <Route path="/services/kundali" element={<Kundali />} />
             <Route path="/services/numerology" element={<Numerology />} />
             <Route path="/services/panchang" element={<Panchang />} />
             <Route path="/services/calculator" element={<Calculator />} />
-            <Route path="/services/kundali-matching" element={<KundaliMatching/>} />
+            <Route path="/services/AI-Kaira" element={<AI_Kaira />} />
+            <Route path="/services/kundali-matching" element={<KundaliMatching />} />
 
             {/* Contact */}
             <Route path="/contact" element={<Contact />} />
 
             {/* add these 2 new routes */}
-             <Route path="/sign-in/*" element={<SignInPage/>} />
-             <Route path="/sign-up/*" element={<SignUpPage/>} />
+            <Route path="/sign-in/*" element={<SignInPage />} />
+            <Route path="/sign-up/*" element={<SignUpPage />} />
 
             {/* 404 */}
             <Route path="*" element={
