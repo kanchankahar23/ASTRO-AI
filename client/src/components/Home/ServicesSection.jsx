@@ -18,14 +18,14 @@ import {
 ========================= */
 const services = [
   {
-    title: "Agastyaa AI Chat",
+    title: "Kaira AI Chat",
     description:
       "Ask unlimited questions about love, career, health, finance. Get instant, personalised Vedic answers 24/7.",
     tag: "Core",
     icon: <MessageSquare size={20} />,
   },
   {
-    title: "Daily Horoscope",
+    title: "Horoscope",
     description:
       "Birth-chart-based predictions, not generic zodiac. Updated daily with transit-aware insights.",
     tag: "Daily",
@@ -39,30 +39,11 @@ const services = [
     icon: <Heart size={20} />,
   },
   {
-    title: "Life Reports",
+    title: "Kundali",
     description:
       "Comprehensive reports on career, love, health & finance.",
     tag: "Premium",
     icon: <FileText size={20} />,
-  },
-  {
-    title: "Birth Charts",
-    description:
-      "Rasi, Navamsa, Dashamsha & 16 divisional charts.",
-    tag: "Deep",
-    icon: <Globe size={20} />,
-  },
-  {
-    title: "Verified Predictions",
-    description: "Track predictions and see what came true.",
-    tag: "Unique",
-    icon: <Eye size={20} />,
-  },
-  {
-    title: "Muhurat Finder",
-    description: "Find the perfect time for important events.",
-    tag: "Utility",
-    icon: <Clock size={20} />,
   },
   {
     title: "Panchang & Tithi",
@@ -71,7 +52,7 @@ const services = [
     icon: <Star size={20} />,
   },
   {
-    title: "Soulchants",
+    title: "Numerology",
     description: "Curated mantras for your daily spiritual routine.",
     tag: "Spiritual",
     icon: <Music size={20} />,
