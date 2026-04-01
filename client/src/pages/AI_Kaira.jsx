@@ -10,7 +10,10 @@ const AI_Kaira = () => {
 
             {/* 🔶 Sidebar */}
             <div className="w-64 bg-white shadow-md p-4 flex flex-col rounded-xl">
-                <button className="bg-orange-500 text-white py-2 rounded-lg mb-4 hover:bg-orange-600 transition">
+                <h1 className="text-3xl font-bold text-gray-800 text-center font-serif">
+                    Kaira <span className="text-orange-500">AI</span>
+                </h1>
+                <button className="bg-orange-500 text-white py-2 mt-3 rounded-lg mb-4 hover:bg-orange-600 transition">
                     + New Chat
                 </button>
 
@@ -32,7 +35,7 @@ const AI_Kaira = () => {
 
                     {/* AI Message */}
                     <div className="flex items-start gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
+                        <div className="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
                             <img src={kaira} alt="AI" />
                         </div>
                         <div className="bg-gray-100 p-3 rounded-xl max-w-md">
@@ -49,7 +52,7 @@ const AI_Kaira = () => {
                                 Tell me about my kundali Lorem ipsum dolor sit amet consectetur.
                             </p>
                         </div>
-                        <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
+                        <div className="w-12 h-12 rounded-full bg-gray-300 overflow-hidden">
                             <img src={kanchan} alt="User" />
                         </div>
                     </div>
@@ -64,7 +67,7 @@ const AI_Kaira = () => {
                         className="flex-1 border rounded-full border-zinc-400  px-4 py-2 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     />
                     <button className="w-12 h-12 bg-orange-600 flex justify-center items-center text-white rounded-full ">
-                      <Send/>
+                        <Send />
                     </button>
                 </div>
             </div>
