@@ -23,7 +23,6 @@ import AI_Kaira from './AI_Kaira'
 const AppRoutes = () => {
     return (
         <Routes>
-
             {/* Main pages */}
             <Route path="/" element={<Home />} />
             <Route path="/horoscope/:type" element={<Horoscope />} />
@@ -40,8 +39,8 @@ const AppRoutes = () => {
             <Route path="/contact" element={<Contact />} />
 
             {/* add these 2 new routes */}
-            <Route path="/sign-in/*" element={<SignInPage />} />
-            <Route path="/sign-up/*" element={<SignUpPage />} />
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/sign-up" element={<SignUpPage />} />
 
             {/* 404 */}
             <Route path="*" element={
