@@ -1,27 +1,26 @@
-const express = require('express');
-const dotenv = require('dotenv');
-const cors = require('cors');
-const connectDB = require('./config/db');
+const express = require('express')
+const dotenv = require('dotenv')
+const cors = require('cors')
+const connectDB = require('./config/db')
+const horoscopeRoutes = require('./routes/horoscopeRoutes')
+const kundaliRoutes = require('./routes/kundaliRoutes')
 
-// Load env variables
-dotenv.config();
+dotenv.config()
+connectDB()
 
-// Connect to MongoDB
-connectDB();
+const app = express()
 
-const app = express();
+app.use(cors())
+app.use(express.json())
 
-// Middleware
-app.use(cors());
-app.use(express.json());
+app.use('/api/horoscope', horoscopeRoutes)
+app.use('/api/kundali', kundaliRoutes)
 
-// Test route
 app.get('/', (req, res) => {
-  res.json({ message: 'AstroBuddy API is running!' });
-});
+  res.json({ message: 'AstroBuddy API is running!' })
+})
 
-const PORT = process.env.PORT || 5000;
-
+const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+  console.log(`Server running on port ${PORT}`)
+})
