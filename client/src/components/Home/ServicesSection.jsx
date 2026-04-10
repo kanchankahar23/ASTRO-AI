@@ -16,7 +16,7 @@ import {
 /* =========================
    Services Data (Outside)
 ========================= */
-const services = [
+const servicesData = [
   {
     title: "Kaira AI Chat",
     description:
@@ -113,7 +113,7 @@ const ServicesSection = () => {
 
       {/* Cards */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service, index) => (
+        {servicesData.map((service, index) => (
           <AnimateOnScroll key={service.title} delay={index * 0.08}>
             
             <motion.div
