@@ -13,7 +13,7 @@ import Calculator from './Services/Calculator'
 
 // Contact
 import Contact from './Contact'
-import Kundali from './services/Kundali'
+import Kundali from './Kundali' 
 import KundaliMatching from './Services/KundaliMatching'
 
 import AI_Kaira from './AI_Kaira'
