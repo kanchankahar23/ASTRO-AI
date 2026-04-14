@@ -13,12 +13,13 @@ import Calculator from './Services/Calculator'
 
 // Contact
 import Contact from './Contact'
-import Kundali from './Kundali' 
+import Kundali from './Kundali'
 import KundaliMatching from './Services/KundaliMatching'
 
 import AI_Kaira from './AI_Kaira'
 import SignInPage from './SignInPage'
 import SignUpPage from './SignUpPage'
+import Dashboard from './Dashboard'
 
 
 const AppRoutes = () => {
@@ -38,6 +39,9 @@ const AppRoutes = () => {
 
             {/* Contact */}
             <Route path="/contact" element={<Contact />} />
+
+            {/* dashboard */}
+            <Route path='/dashboard' element={<Dashboard />}/>
 
             {/* {/* add these 2 new routes */}
             <Route path='/sign-in/*' element={<SignInPage />} />
