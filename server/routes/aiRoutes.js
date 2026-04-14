@@ -1,10 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { GoogleGenerativeAI } = require('@google/generative-ai')
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
-
-// POST /api/ai/chat
 router.post('/chat', async (req, res) => {
   try {
     const { message, history } = req.body
@@ -13,37 +9,39 @@ router.post('/chat', async (req, res) => {
       return res.status(400).json({ message: 'Message is required' })
     }
 
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' })
+    // Create Groq client INSIDE the route
+    const Groq = require('groq-sdk')
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY })
 
-    const systemPrompt = `You are Kaira, an expert AI astrologer assistant for AstroAI platform. 
-    You provide helpful, accurate and compassionate astrology guidance.
-    You know about: Kundali, Zodiac signs, Planets, Nakshatras, Horoscopes, Vedic astrology, 
-    Numerology, Kundali matching, Vastu, and spiritual guidance.
-    Always respond in a warm, friendly and professional tone.
-    Keep responses concise but informative (2-3 paragraphs max).
-    If asked about non-astrology topics, gently redirect to astrology.`
+    const messages = [
+      {
+        role: 'system',
+        content: `You are Kaira, an expert AI astrologer for AstroAI platform.
+        You provide helpful, accurate and compassionate astrology guidance.
+        You know about Kundali, Zodiac signs, Planets, Nakshatras, Horoscopes,
+        Vedic astrology, Numerology, Kundali matching and spiritual guidance.
+        Always respond in a warm, friendly and professional tone.
+        Keep responses concise (2-3 paragraphs max).`
+      },
+      ...(history || []).map(msg => ({
+        role: msg.role === 'model' ? 'assistant' : msg.role,
+        content: msg.parts?.[0]?.text || msg.content || ''
+      })),
+      { role: 'user', content: message }
+    ]
 
-    const chat = model.startChat({
-      history: [
-        {
-          role: 'user',
-          parts: [{ text: systemPrompt }]
-        },
-        {
-          role: 'model',
-          parts: [{ text: 'I understand. I am Kaira, your personal AI astrologer. I will provide expert astrology guidance with warmth and accuracy.' }]
-        },
-        ...(history || [])
-      ]
+    const completion = await groq.chat.completions.create({
+      messages,
+      model: 'llama-3.3-70b-versatile',
+      temperature: 0.7,
+      max_tokens: 500,
     })
 
-    const result = await chat.sendMessage(message)
-    const response = result.response.text()
-
-    res.json({ reply: response })
+    const reply = completion.choices[0]?.message?.content || 'Sorry, could not generate response.'
+    res.json({ reply })
 
   } catch (error) {
-    console.error('AI Error:', error)
+    console.error('AI Error:', error.message)
     res.status(500).json({ message: 'AI service error' })
   }
 })
