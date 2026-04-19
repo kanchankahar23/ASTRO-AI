@@ -3,7 +3,8 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import bgImg from '/ASTRO-AI/client/src/assets/astrology-banner.jpg';
 import aiAstro from '/ASTRO-AI/client/src/assets/ai-astro.jpg';
-import { MoveRight } from 'lucide-react';
+import { useUser } from '@clerk/clerk-react';
+import { useNavigate } from 'react-router-dom';
 
 // Reusable animated wrapper — re-animates every time it enters view
 const AnimateOnScroll = ({ children, delay = 0, direction = 'up' }) => {
@@ -44,19 +45,38 @@ const AnimateOnScroll = ({ children, delay = 0, direction = 'up' }) => {
 };
 
 const HeroSection = () => {
+  const { isSignedIn } = useUser();
+  const navigate = useNavigate();
+
+  const handleChatWithKaira = () => {
+    if (isSignedIn) {
+      navigate('/services/AI-Kaira');
+    } else {
+      navigate('/sign-in');
+    }
+  };
+
+  const handleSignUp = () => {
+    if (isSignedIn) {
+      navigate('services/AI-Kaira');
+    } else {
+      navigate('/sign-up');
+    }
+  };
+
   return (
     <section
       style={{ backgroundImage: `url(${bgImg})` }}
-      className="bg-cover bg-center bg-no-repeat text-white  flex items-center"
+      className="bg-cover bg-center bg-no-repeat text-white flex items-center"
     >
-      <div className="max-w-7xl  mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center py-30 ">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-center py-30">
 
         {/* Left Content */}
         <div className='mt-10'>
 
           {/* Subtitle */}
           <AnimateOnScroll delay={0.1} direction="up">
-            <p className=" text-xl text-left mb-2">
+            <p className="text-xl text-left mb-2">
               AI Powered Astrology
             </p>
           </AnimateOnScroll>
@@ -64,13 +84,13 @@ const HeroSection = () => {
           {/* Heading */}
           <AnimateOnScroll delay={0.2} direction="up">
             <h1 className="text-3xl md:text-6xl whitespace-nowrap font-bold leading-tight mb-4">
-              Read your Future with <br /><span className='text-orange-500'> AI  Astrologer</span>
+              Read your Future with <br /><span className='text-orange-500'>AI Astrologer</span>
             </h1>
           </AnimateOnScroll>
 
           {/* Description */}
           <AnimateOnScroll delay={0.3} direction="up">
-            <p className=" text-lg mb-8">
+            <p className="text-lg mb-8">
               Go beyond belief. Experience predictions that are calculated, personalized, and designed to guide your decisions with confidence.
             </p>
           </AnimateOnScroll>
@@ -78,26 +98,29 @@ const HeroSection = () => {
           {/* Buttons */}
           <AnimateOnScroll delay={0.4} direction="up">
             <div className="flex gap-4 flex-wrap">
-              <motion.a
-                href="#services"
+
+              {/* Chat With Kaira Button */}
+              <motion.button
+                onClick={handleChatWithKaira}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-orange-500 flex gap-2 hover:bg-orange-600 text-white text-xl px-9 py-3 rounded-md font-semibold transition"
+                className="bg-orange-500 flex gap-2 hover:bg-orange-600 text-white text-xl px-9 py-3 rounded-md font-semibold transition cursor-pointer"
               >
-                Chat With Kaira 
-              </motion.a>
-        
-              <motion.a
-                href="#astrologers"
+                Chat With Kaira
+              </motion.button>
+
+              {/* Sign Up Button */}
+              <motion.button
+                onClick={handleSignUp}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border border-orange-400 text-orange-400 text-xl hover:bg-orange-400 hover:text-white px-9 py-3 rounded-md font-semibold transition"
+                className="border border-orange-400 text-orange-400 text-xl hover:bg-orange-400 hover:text-white px-9 py-3 rounded-md font-semibold transition cursor-pointer"
               >
-                Sign Up
-              </motion.a>
+                {isSignedIn ? 'Go to Dashboard' : 'Sign Up'}
+              </motion.button>
+
             </div>
           </AnimateOnScroll>
-
 
         </div>
 
@@ -108,7 +131,6 @@ const HeroSection = () => {
               src={aiAstro}
               alt="Astrologer"
               className="w-80 md:w-96 rounded-full shadow-2xl border-4 border-orange-400"
-              // whileHover={{ scale: 1.03, rotate: 2 }}
               transition={{ type: 'spring', stiffness: 200 }}
             />
           </div>
