@@ -47,13 +47,13 @@ const servicesData = [
   },
   {
     title: "Panchang & Tithi",
-    description: "Daily Panchang with Nakshatra and Yoga.",
+    description: "Daily Panchang with Nakshatra and Yoga. Panchang lorem jhkj nbkjh mnmhkh nbnbkn kn",
     tag: "Vedic",
     icon: <Star size={20} />,
   },
   {
     title: "Numerology",
-    description: "Curated mantras for your daily spiritual routine.",
+    description: "Curated mantras for your daily spiritual routine.Panchang lorem jhkj nbkjh mnmhkh nbnbkn kn",
     tag: "Spiritual",
     icon: <Music size={20} />,
   },
