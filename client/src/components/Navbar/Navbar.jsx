@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { useUser } from '@clerk/clerk-react'
-import { Sun } from 'lucide-react'
+import { useUser, useClerk } from '@clerk/clerk-react'
+import { Sun, LogOut, LayoutDashboard } from 'lucide-react'
 import logo from '/ASTRO-AI/client/src/assets/logo.png'
 
 const NAV_LINKS = [
@@ -25,7 +25,6 @@ const DROPDOWNS = [
       { label: 'Numerology', to: '/services/numerology' },
       { label: 'Panchang', to: '/services/panchang' },
       { label: 'AI Kaira', to: '/services/AI-Kaira' },
-      { label: 'Calculator', to: '/services/calculator' },
       { label: 'Free Kundli', to: '/services/kundali' },
       { label: 'Kundli Matching', to: '/services/kundali-matching' },
     ],
@@ -46,6 +45,110 @@ const ChevronIcon = ({ isOpen }) => (
   </svg>
 )
 
+// ✅ Profile Dropdown Component
+const ProfileDropdown = () => {
+  const { user } = useUser()
+  const { signOut } = useClerk()
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) {
+        setOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const profileImage = user?.imageUrl          // ✅ Clerk profile photo URL
+  const fullName = user?.fullName || user?.firstName || 'User'
+  const email = user?.primaryEmailAddress?.emailAddress || 'No email'
+  const initials = fullName.charAt(0).toUpperCase()
+
+  return (
+    <div className="relative" ref={ref}>
+
+      {/* ✅ Circular Profile Photo Button */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center gap-1.5 group"
+        aria-label="Profile menu"
+      >
+        {/* Circle — like the reference image */}
+        <div className="w-10 h-10 rounded-full ring-2 ring-orange-400 ring-offset-1 overflow-hidden transition-all duration-200 group-hover:ring-orange-500 group-hover:scale-105">
+          {profileImage ? (
+            <img
+              src={profileImage}
+              alt={fullName}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full bg-orange-500 flex items-center justify-center text-white font-bold text-sm">
+              {initials}
+            </div>
+          )}
+        </div>
+        <span className="text-gray-400 group-hover:text-orange-500 transition-colors">
+          <ChevronIcon isOpen={open} />
+        </span>
+      </button>
+
+      {/* ✅ Dropdown Panel */}
+      {open && (
+        <div
+          className="absolute right-0 top-full mt-3 w-64 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 overflow-hidden"
+          style={{ animation: 'dropIn 0.15s ease' }}
+        >
+          {/* Header with photo + name + email */}
+          <div className="px-4 py-4 bg-gradient-to-br from-orange-50 to-white border-b border-orange-100">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full ring-2 ring-orange-300 overflow-hidden flex-shrink-0">
+                {profileImage ? (
+                  <img src={profileImage} alt={fullName} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full bg-orange-500 flex items-center justify-center text-white font-bold text-base">
+                    {initials}
+                  </div>
+                )}
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-gray-800 truncate">{fullName}</p>
+                {/* ✅ Email */}
+                <p className="text-xs text-gray-500 truncate mt-0.5">{email}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Actions */}
+          <div className="py-1.5">
+            <Link
+              to="/dashboard"
+              onClick={() => setOpen(false)}
+              className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-orange-50 hover:text-orange-500 transition-colors duration-150"
+            >
+              <LayoutDashboard size={15} className="text-gray-400" />
+              My Dashboard
+            </Link>
+
+            <div className="my-1 border-t border-gray-100" />
+
+            {/* ✅ Logout */}
+            <button
+              onClick={() => { setOpen(false); signOut() }}
+              className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 transition-colors duration-150"
+            >
+              <LogOut size={15} />
+              Log Out
+            </button>
+          </div>
+        </div>
+      )}
+    </div>
+  )
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [dropdown, setDropdown] = useState(null)
@@ -53,19 +156,14 @@ const Navbar = () => {
   const navRef = useRef(null)
   const location = useLocation()
 
-  // ✅ Clerk auth state
-  const { isSignedIn } = useUser()
+  const { isSignedIn, user } = useUser()
+  const { signOut } = useClerk()
 
-  useEffect(() => {
-    setDropdown(null)
-    setIsOpen(false)
-  }, [location])
+  useEffect(() => { setDropdown(null); setIsOpen(false) }, [location])
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (navRef.current && !navRef.current.contains(e.target)) {
-        setDropdown(null)
-      }
+      if (navRef.current && !navRef.current.contains(e.target)) setDropdown(null)
     }
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
@@ -84,8 +182,7 @@ const Navbar = () => {
     <nav
       ref={navRef}
       style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
-      className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'
-        }`}
+      className={`bg-white sticky top-0 z-50 transition-shadow duration-300 ${scrolled ? 'shadow-md' : 'shadow-sm'}`}
     >
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
 
@@ -99,18 +196,11 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center text-sm font-bold gap-5">
-
           {NAV_LINKS.map((link) => (
             <li key={link.to}>
-              <Link
-                to={link.to}
-                className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive(link.to)
-                    ? 'text-orange-500 bg-orange-50'
-                    : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                  }`}
-              >
-                {link.label}
-              </Link>
+              <Link to={link.to}
+                className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive(link.to) ? 'text-orange-500 bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'}`}
+              >{link.label}</Link>
             </li>
           ))}
 
@@ -118,10 +208,7 @@ const Navbar = () => {
             <li key={dd.name} className="relative">
               <button
                 onClick={() => toggleDropdown(dd.name)}
-                className={`px-3 py-2 rounded-md flex items-center gap-1.5 transition-colors duration-200 ${dropdown === dd.name
-                    ? 'text-orange-500 bg-orange-50'
-                    : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                  }`}
+                className={`px-3 py-2 rounded-md flex items-center gap-1.5 transition-colors duration-200 ${dropdown === dd.name ? 'text-orange-500 bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'}`}
               >
                 {dd.label}
                 <ChevronIcon isOpen={dropdown === dd.name} />
@@ -132,15 +219,9 @@ const Navbar = () => {
                   style={{ animation: 'dropIn 0.15s ease' }}>
                   {dd.items.map((item) => (
                     <li key={item.to}>
-                      <Link
-                        to={item.to}
-                        className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors duration-150 ${isActive(item.to)
-                            ? 'text-orange-500 bg-orange-50 font-medium'
-                            : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                          }`}
-                      >
-                        {item.label}
-                      </Link>
+                      <Link to={item.to}
+                        className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors duration-150 ${isActive(item.to) ? 'text-orange-500 bg-orange-50 font-medium' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'}`}
+                      >{item.label}</Link>
                     </li>
                   ))}
                 </ul>
@@ -149,43 +230,29 @@ const Navbar = () => {
           ))}
 
           <li>
-            <Link
-              to="/contact"
-              className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive('/contact')
-                  ? 'text-orange-500 bg-orange-50'
-                  : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                }`}
-            >
-              Contact Us
-            </Link>
+            <Link to="/contact"
+              className={`px-3 py-2 rounded-md transition-colors duration-200 ${isActive('/contact') ? 'text-orange-500 bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'}`}
+            >Contact Us</Link>
           </li>
         </ul>
 
         {/* Right Side */}
-        <div className="flex gap-2 items-center">
-
-          {/* ✅ Desktop: Login OR Dashboard based on auth */}
+        
+        <div className="flex gap-5 items-center">
+            <div className="bg-zinc-100 p-2 rounded-md">
+            <Sun className="text-orange-600" />
+          </div>
           <div className="hidden md:block">
             {isSignedIn ? (
-              <Link
-                to="/dashboard"
-                className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-8 py-3 rounded-md transition-colors duration-200 font-semibold text-sm"
-              >
-                Dashboard
-              </Link>
+              <ProfileDropdown />   // ✅ circular photo button
             ) : (
-              <Link
-                to="/sign-in"
+              <Link to="/sign-in"
                 className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-8 py-3 rounded-md transition-colors duration-200 font-semibold text-sm"
-              >
-                Log In
-              </Link>
+              >Log In</Link>
             )}
           </div>
 
-          <div className="bg-zinc-200 p-2 rounded-md">
-            <Sun className="text-orange-600" />
-          </div>
+       
 
           {/* Mobile Hamburger */}
           <button
@@ -203,80 +270,70 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 px-4 pb-4 flex flex-col gap-1 text-sm">
-
           {NAV_LINKS.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`px-3 py-2.5 rounded-lg transition-colors ${isActive(link.to)
-                  ? 'text-orange-500 bg-orange-50 font-medium'
-                  : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                }`}
-            >
-              {link.label}
-            </Link>
+            <Link key={link.to} to={link.to}
+              className={`px-3 py-2.5 rounded-lg transition-colors ${isActive(link.to) ? 'text-orange-500 bg-orange-50 font-medium' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'}`}
+            >{link.label}</Link>
           ))}
 
-          {/* ✅ Fixed: div instead of li, inline dropdown (not absolute) */}
           {DROPDOWNS.map((dd) => (
             <div key={dd.name}>
               <button
                 onClick={() => toggleDropdown(dd.name)}
-                className={`w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-1.5 transition-colors duration-200 ${dropdown === dd.name
-                    ? 'text-orange-500 bg-orange-50'
-                    : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'
-                  }`}
+                className={`w-full text-left px-3 py-2.5 rounded-lg flex items-center gap-1.5 transition-colors duration-200 ${dropdown === dd.name ? 'text-orange-500 bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50'}`}
               >
                 {dd.label}
                 <ChevronIcon isOpen={dropdown === dd.name} />
               </button>
-
               {dropdown === dd.name && (
                 <div className="ml-3 flex flex-col gap-1 mt-1">
                   {dd.items.map((item) => (
-                    <Link
-                      key={item.to}
-                      to={item.to}
-                      className={`px-4 py-2 rounded-lg text-sm transition-colors ${isActive(item.to)
-                          ? 'text-orange-500 bg-orange-50 font-medium'
-                          : 'text-gray-600 hover:text-orange-500 hover:bg-orange-50'
-                        }`}
-                    >
-                      {item.label}
-                    </Link>
+                    <Link key={item.to} to={item.to}
+                      className={`px-4 py-2 rounded-lg text-sm transition-colors ${isActive(item.to) ? 'text-orange-500 bg-orange-50 font-medium' : 'text-gray-600 hover:text-orange-500 hover:bg-orange-50'}`}
+                    >{item.label}</Link>
                   ))}
                 </div>
               )}
             </div>
           ))}
 
-          <Link
-            to="/contact"
+          <Link to="/contact"
             className="px-3 py-2.5 rounded-lg text-gray-700 hover:text-orange-500 hover:bg-orange-50 transition-colors"
-          >
-            Contact Us
-          </Link>
+          >Contact Us</Link>
 
-          {/* ✅ Mobile: Login OR Dashboard based on auth */}
-          {!isSignedIn ? (
-
-            <Link
-              to="/sign-in"
+          {/* ✅ Mobile: circular photo + email + logout */}
+          {isSignedIn ? (
+            <div className="mt-1 border border-orange-100 rounded-xl overflow-hidden">
+              <div className="flex items-center gap-3 px-4 py-3 bg-orange-50">
+                <div className="w-10 h-10 rounded-full ring-2 ring-orange-300 overflow-hidden flex-shrink-0">
+                  {user?.imageUrl ? (
+                    <img src={user.imageUrl} alt={user?.fullName || 'Profile'} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-orange-500 flex items-center justify-center text-white text-sm font-bold">
+                      {(user?.fullName || 'U').charAt(0).toUpperCase()}
+                    </div>
+                  )}
+                </div>
+                <div className="min-w-0">
+                  {user?.fullName && <p className="text-sm font-semibold text-gray-800 truncate">{user.fullName}</p>}
+                  <p className="text-xs text-gray-500 truncate">{user?.primaryEmailAddress?.emailAddress}</p>
+                </div>
+              </div>
+              <button
+                onClick={() => signOut()}
+                className="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 transition-colors"
+              >
+                <LogOut size={14} />
+                Log Out
+              </button>
+            </div>
+          ) : (
+            <Link to="/sign-in"
               className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2.5 rounded-md font-semibold text-center"
-            >
-              Log In
-            </Link>
-          ) : (<Link
-            to="/dashboard"
-            className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-3 rounded-md font-semibold text-center"
-          >
-            Dashboard
-          </Link>
+            >Log In</Link>
           )}
         </div>
-        
       )}
-      
 
       <style>{`
         @keyframes dropIn {
