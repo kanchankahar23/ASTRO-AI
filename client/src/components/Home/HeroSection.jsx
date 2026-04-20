@@ -58,7 +58,7 @@ const HeroSection = () => {
 
   const handleSignUp = () => {
     if (isSignedIn) {
-      navigate('services/AI-Kaira');
+      navigate('/dashboard');
     } else {
       navigate('/sign-up');
     }
