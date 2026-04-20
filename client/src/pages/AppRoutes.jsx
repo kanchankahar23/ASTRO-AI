@@ -15,6 +15,8 @@ import Calculator from './Services/Calculator'
 import Contact from './Contact'
 import Kundali from './Kundali'
 import KundaliMatching from './Services/KundaliMatching'
+// import Panchang from "./Services/Panchang";
+
 
 import AI_Kaira from './AI_Kaira'
 import SignInPage from './SignInPage'
@@ -32,10 +34,12 @@ const AppRoutes = () => {
             {/* Services */}
             <Route path="/services/kundali" element={<Kundali />} />
             <Route path="/services/numerology" element={<Numerology />} />
-            <Route path="/services/panchang" element={<Panchang />} />
+            {/* <Route path="/services/panchang" element={<Panchang />} /> */}
             <Route path="/services/calculator" element={<Calculator />} />
             <Route path="/services/AI-Kaira" element={<AI_Kaira />} />
             <Route path="/services/kundali-matching" element={<KundaliMatching />} />
+            <Route path="/panchang" element={<Panchang />} />
+
 
             {/* Contact */}
             <Route path="/contact" element={<Contact />} />
