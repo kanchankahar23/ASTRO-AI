@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
-import design from '/ASTRO-AI/client/src/assets/design.png'
-import aboutImg from '/ASTRO-AI/client/src/assets/about-img.webp'
+import design from '../../assets/design.png'
+import aboutImg from '../../assets/about-img.webp'
 
 // ── Reusable scroll-trigger wrapper ──────────────────────────────────────────
 const AnimateOnScroll = ({ children, delay = 0, direction = 'up' }) => {
