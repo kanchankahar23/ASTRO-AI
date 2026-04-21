@@ -1,5 +1,5 @@
 import AboutUs from '../components/Home/AboutUs'
-import HeroSection from '../components/Home/Herosection'
+import HeroSection from '../components/Home/HeroSection'
 // import HeroSection from '../components/Home/HeroSection'
 import HoroscopeSection from '../components/Home/HoroscopeSection'
 import ServicesSection from '../components/Home/ServicesSection'
