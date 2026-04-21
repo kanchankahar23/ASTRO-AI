@@ -23,8 +23,10 @@ const DROPDOWNS = [
     label: 'Services',
     items: [
       { label: 'Numerology', to: '/services/numerology' },
-      // { label: 'Panchang', to: '/services/panchang' },
+      { label: 'Panchang', to: '/services/panchang' },
       { label: 'AI Kaira', to: '/services/AI-Kaira' },
+
+      
       { label: 'Free Kundli', to: '/services/kundali' },
       { label: 'Kundli Matching', to: '/services/kundali-matching' },
     ],
