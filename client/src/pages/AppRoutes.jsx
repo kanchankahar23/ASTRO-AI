@@ -5,18 +5,14 @@ import Home from './Home'
 import Horoscope from './Horoscope'
 
 // Service pages
-
 import Numerology from './Services/Numerology'
 import Panchang from './Services/Panchang'
 import Calculator from './Services/Calculator'
-
 
 // Contact
 import Contact from './Contact'
 import Kundali from './Kundali'
 import KundaliMatching from './Services/KundaliMatching'
-// import Panchang from "./Services/Panchang";
-
 
 import AI_Kaira from './AI_Kaira'
 import SignInPage from './SignInPage'
@@ -34,22 +30,20 @@ const AppRoutes = () => {
             {/* Services */}
             <Route path="/services/kundali" element={<Kundali />} />
             <Route path="/services/numerology" element={<Numerology />} />
-            {/* <Route path="/services/panchang" element={<Panchang />} /> */}
+            <Route path="/services/panchang" element={<Panchang />} />  {/* ✅ Fixed */}
             <Route path="/services/calculator" element={<Calculator />} />
             <Route path="/services/AI-Kaira" element={<AI_Kaira />} />
             <Route path="/services/kundali-matching" element={<KundaliMatching />} />
-            <Route path="/panchang" element={<Panchang />} />
-
 
             {/* Contact */}
             <Route path="/contact" element={<Contact />} />
 
-            {/* dashboard */}
-            <Route path='/dashboard' element={<Dashboard />}/>
+            {/* Dashboard */}
+            <Route path="/dashboard" element={<Dashboard />} />
 
-            {/* {/* add these 2 new routes */}
-            <Route path='/sign-in/*' element={<SignInPage />} />
-            <Route path='/sign-up/*' element={<SignUpPage />} />
+            {/* Auth */}
+            <Route path="/sign-in/*" element={<SignInPage />} />
+            <Route path="/sign-up/*" element={<SignUpPage />} />
 
             {/* 404 */}
             <Route path="*" element={
@@ -58,7 +52,6 @@ const AppRoutes = () => {
                     <p className="text-gray-500 mt-2">Page not found</p>
                 </div>
             } />
-
         </Routes>
     )
 }
