@@ -1,5 +1,5 @@
 import React from 'react'
-import design from '../../assets/design.png'
+import design from '../assets/design.png'
 const Contact = () => {
   return (
     <div className="bg-[#f8f7f4] min-h-screen py-16 px-4">
