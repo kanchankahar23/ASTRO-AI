@@ -1,6 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
-import design from '/ASTRO-AI/client/src/assets/design.png'
+import design from '../../assets/design.png'
 import aries from '/ASTRO-AI/client/src/assets/taurus.svg'
 import Taurus from '/ASTRO-AI/client/src/assets/taurus.svg'
 import gemini from '/ASTRO-AI/client/src/assets/Gemini1.svg'
