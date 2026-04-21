@@ -7,7 +7,6 @@ import Horoscope from './Horoscope'
 // Service pages
 import Numerology from './Services/Numerology'
 import Panchang from './Services/Panchang'
-import Calculator from './Services/Calculator'
 
 // Contact
 import Contact from './Contact'
@@ -31,7 +30,7 @@ const AppRoutes = () => {
             <Route path="/services/kundali" element={<Kundali />} />
             <Route path="/services/numerology" element={<Numerology />} />
             <Route path="/services/panchang" element={<Panchang />} />  {/* ✅ Fixed */}
-            <Route path="/services/calculator" element={<Calculator />} />
+   
             <Route path="/services/AI-Kaira" element={<AI_Kaira />} />
             <Route path="/services/kundali-matching" element={<KundaliMatching />} />
 
