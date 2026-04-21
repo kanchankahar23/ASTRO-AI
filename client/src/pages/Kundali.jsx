@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
-import kundali_banner from '../assets/globe.jpg'
+import kundali_banner from '../../assets/globe.jpg'
 
 const Kundali = () => {
 
