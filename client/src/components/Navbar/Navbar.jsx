@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { useUser, useClerk } from '@clerk/clerk-react'
 import { Sun, LogOut, LayoutDashboard } from 'lucide-react'
-import logo from '/ASTRO-AI/client/src/assets/logo.png'
+import logo from '../../assets/logo.png'
 
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
@@ -23,10 +23,8 @@ const DROPDOWNS = [
     label: 'Services',
     items: [
       { label: 'Numerology', to: '/services/numerology' },
-      { label: 'Panchang', to: '/services/panchang' },
+      // { label: 'Panchang', to: '/services/panchang' },
       { label: 'AI Kaira', to: '/services/AI-Kaira' },
-
-      
       { label: 'Free Kundli', to: '/services/kundali' },
       { label: 'Kundli Matching', to: '/services/kundali-matching' },
     ],
