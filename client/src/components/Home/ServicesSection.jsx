@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import design from "/ASTRO-AI/client/src/assets/design.png";
+import design from "../../assets/design.png";
 import {
   MessageSquare,
   Sun,
