@@ -1,6 +1,7 @@
 import { useState } from "react";
-import numero from '/ASTRO-AI/client/src/assets/numero.webp'
-import bannerImg from "/ASTRO-AI/client/src/assets/Kundali_banner.avif";
+import numero from '../../assets/numero.webp'
+import bannerImg from '../../assets/Kundali_banner.avif'
+// import bannerImg from "/ASTRO-AI/client/src/assets/Kundali_banner.avif";
 
 import { motion, AnimatePresence } from "framer-motion";
 import { Hash, Star, Heart, Briefcase, Zap, ChevronDown, Sparkles, RefreshCw } from "lucide-react";
