@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import logo from '/ASTRO-AI/client/src/assets/logo.png'
+import logo from '../../assets/logo.png'
 const Footer = () => {
   return (
     <footer className="bg-gray-100 text-gray-300 pt-12 pb-6 mt-16">
