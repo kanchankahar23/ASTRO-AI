@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import bannerImg from "/ASTRO-AI/client/src/assets/Kundali_banner.avif";
+import bannerImg from "../../assets/Kundali_banner.avif";
 
 import {
   Sun,
