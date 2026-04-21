@@ -1,18 +1,18 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import design from '../../assets/design.png'
-import aries from '/ASTRO-AI/client/src/assets/taurus.svg'
-import Taurus from '/ASTRO-AI/client/src/assets/taurus.svg'
-import gemini from '/ASTRO-AI/client/src/assets/Gemini1.svg'
-import cancer from '/ASTRO-AI/client/src/assets/cancer.svg'
-import leo from '/ASTRO-AI/client/src/assets/leo.svg'
-import virgo from '/ASTRO-AI/client/src/assets/virgo.svg'
-import libra from '/ASTRO-AI/client/src/assets/libra.svg'
-import Scorpio from '/ASTRO-AI/client/src/assets/scorpio.svg'
-import Sagittarius from '/ASTRO-AI/client/src/assets/sagittairus.svg'
-import capricorn from '/ASTRO-AI/client/src/assets/capricorn.svg'
-import aquarius from '/ASTRO-AI/client/src/assets/aquarius.svg'
-import pisces from '/ASTRO-AI/client/src/assets/pisces.svg'
+import aries from '../../assets/taurus.svg'
+import Taurus from '../../assets/taurus.svg'
+import gemini from '../../assets/Gemini1.svg'
+import cancer from '../../assets/cancer.svg'
+import leo from '../../assets/leo.svg'
+import virgo from '../../assets/virgo.svg'
+import libra from '../../assets/libra.svg'
+import Scorpio from '../../assets/scorpio.svg'
+import Sagittarius from '../../assets/sagittairus.svg'
+import capricorn from '../../assets/capricorn.svg'
+import aquarius from '../../assets/aquarius.svg'
+import pisces from '../../assets/pisces.svg'
 
 const signs = [
   { name: 'Aries',       symbol: aries,       date: 'Mar 21 - Apr 19', element: 'Fire',  lucky: '9, 41',  color: 'Red' },
