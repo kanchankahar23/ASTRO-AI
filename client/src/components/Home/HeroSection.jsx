@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import bgImg from '/ASTRO-AI/client/src/assets/astrology-banner.jpg';
-import aiAstro from '/ASTRO-AI/client/src/assets/ai-astro.jpg';
+import bgImg from '../../assets/astrology-banner.jpg';
+import aiAstro from '../../assets/ai-astro.jpg';
 import { useUser } from '@clerk/clerk-react';
 import { useNavigate } from 'react-router-dom';
 
