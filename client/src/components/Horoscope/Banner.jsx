@@ -2,30 +2,32 @@ import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 // ✅ Assets
-import aries from "/ASTRO-AI/client/src/assets/taurus.svg";
-import taurus from "/ASTRO-AI/client/src/assets/taurus.svg";
-import gemini from "/ASTRO-AI/client/src/assets/Gemini1.svg";
-import cancer from "/ASTRO-AI/client/src/assets/cancer.svg";
-import leo from "/ASTRO-AI/client/src/assets/leo.svg";
-import virgo from "/ASTRO-AI/client/src/assets/virgo.svg";
-import libra from "/ASTRO-AI/client/src/assets/libra.svg";
-import scorpio from "/ASTRO-AI/client/src/assets/scorpio.svg";
-import sagittarius from "/ASTRO-AI/client/src/assets/sagittairus.svg";
-import capricorn from "/ASTRO-AI/client/src/assets/capricorn.svg";
-import aquarius from "/ASTRO-AI/client/src/assets/aquarius.svg";
-import pisces from "/ASTRO-AI/client/src/assets/pisces.svg";
-import bannerImg from "/ASTRO-AI/client/src/assets/Kundali_banner.avif";
+import design from '../../assets/design.png'
+import aries from '../../assets/taurus.svg'
+import Taurus from '../../assets/taurus.svg'
+import gemini from '../../assets/Gemini1.svg'
+import cancer from '../../assets/cancer.svg'
+import leo from '../../assets/leo.svg'
+import virgo from '../../assets/virgo.svg'
+import libra from '../../assets/libra.svg'
+import Scorpio from '../../assets/scorpio.svg'
+import Sagittarius from '../../assets/sagittairus.svg'
+import capricorn from '../../assets/capricorn.svg'
+import aquarius from '../../assets/aquarius.svg'
+import pisces from '../../assets/pisces.svg'
+
+import bannerImg from "../../assets/Kundali_banner.avif";
 
 const SIGNS = [
     { name: "Aries",       symbol: aries,       date: "Mar 21 - Apr 19", element: "Fire",  lucky: "9",  color: "Red" },
-    { name: "Taurus",      symbol: taurus,      date: "Apr 20 - May 20", element: "Earth", lucky: "6",  color: "Green" },
+    { name: "Taurus",      symbol: Taurus,      date: "Apr 20 - May 20", element: "Earth", lucky: "6",  color: "Green" },
     { name: "Gemini",      symbol: gemini,      date: "May 21 - Jun 20", element: "Air",   lucky: "5",  color: "Yellow" },
     { name: "Cancer",      symbol: cancer,      date: "Jun 21 - Jul 22", element: "Water", lucky: "2",  color: "Silver" },
     { name: "Leo",         symbol: leo,         date: "Jul 23 - Aug 22", element: "Fire",  lucky: "1",  color: "Gold" },
     { name: "Virgo",       symbol: virgo,       date: "Aug 23 - Sep 22", element: "Earth", lucky: "3",  color: "Blue" },
     { name: "Libra",       symbol: libra,       date: "Sep 23 - Oct 22", element: "Air",   lucky: "4",  color: "Pink" },
-    { name: "Scorpio",     symbol: scorpio,     date: "Oct 23 - Nov 21", element: "Water", lucky: "8",  color: "Black" },
-    { name: "Sagittarius", symbol: sagittarius, date: "Nov 22 - Dec 21", element: "Fire",  lucky: "3",  color: "Purple" },
+    { name: "Scorpio",     symbol: Scorpio,     date: "Oct 23 - Nov 21", element: "Water", lucky: "8",  color: "Black" },
+    { name: "Sagittarius", symbol: Sagittarius, date: "Nov 22 - Dec 21", element: "Fire",  lucky: "3",  color: "Purple" },
     { name: "Capricorn",   symbol: capricorn,   date: "Dec 22 - Jan 19", element: "Earth", lucky: "4",  color: "Brown" },
     { name: "Aquarius",    symbol: aquarius,    date: "Jan 20 - Feb 18", element: "Air",   lucky: "7",  color: "Blue" },
     { name: "Pisces",      symbol: pisces,      date: "Feb 19 - Mar 20", element: "Water", lucky: "3",  color: "Sea Green" },
