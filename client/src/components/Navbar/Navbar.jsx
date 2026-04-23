@@ -239,15 +239,13 @@ const Navbar = () => {
         {/* Right Side */}
         
         <div className="flex gap-5 items-center">
-            <div className="bg-zinc-100 p-2 rounded-md">
-            <Sun className="text-orange-600" />
-          </div>
+           
           <div className="hidden md:block">
             {isSignedIn ? (
               <ProfileDropdown />   // ✅ circular photo button
             ) : (
               <Link to="/sign-in"
-                className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-8 py-3 rounded-md transition-colors duration-200 font-semibold text-sm"
+                className="bg-orange-500 hover:bg-orange-600 active:bg-orange-700 text-white px-8 py-3 rounded-md transition-colors duration-200 font-semibold text-[18px]"
               >Log In</Link>
             )}
           </div>
