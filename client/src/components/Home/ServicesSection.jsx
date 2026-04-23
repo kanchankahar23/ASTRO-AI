@@ -20,7 +20,7 @@ const servicesData = [
   {
     title: "Kaira AI Chat",
     description:
-      "Ask unlimited questions about love, career, health, finance. Get instant, personalised Vedic answers 24/7.",
+      "Ask unlimited questions about love, career, health, and finance. Get instant, personalised Vedic answers 24/7.",
     tag: "Core",
     icon: <MessageSquare size={20} />,
   },
@@ -34,26 +34,28 @@ const servicesData = [
   {
     title: "Kundli Matching",
     description:
-      "Ashtakoota Guna Milan with 36-point compatibility scoring.",
+      "Ashtakoota Guna Milan with 36-point compatibility scoring for marriage compatibility.",
     tag: "Popular",
     icon: <Heart size={20} />,
   },
   {
     title: "Kundali",
     description:
-      "Comprehensive reports on career, love, health & finance.",
+      "Comprehensive birth chart reports covering career, love, health, and finance based on Vedic astrology.",
     tag: "Premium",
     icon: <FileText size={20} />,
   },
   {
     title: "Panchang & Tithi",
-    description: "Daily Panchang with Nakshatra and Yoga. Panchang lorem jhkj nbkjh mnmhkh nbnbkn kn",
+    description:
+      "Daily Panchang with Tithi, Nakshatra, Yoga, Karana, and auspicious muhurtas for every occasion.",
     tag: "Vedic",
     icon: <Star size={20} />,
   },
   {
     title: "Numerology",
-    description: "Curated mantras for your daily spiritual routine.Panchang lorem jhkj nbkjh mnmhkh nbnbkn kn",
+    description:
+      "Discover the power of your birth numbers. Get personalised numerology insights for name and career",
     tag: "Spiritual",
     icon: <Music size={20} />,
   },
