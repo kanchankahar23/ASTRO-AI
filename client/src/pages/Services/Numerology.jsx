@@ -385,7 +385,7 @@ export default function Numerology() {
       </div>
 
       {/* ── Main content ── */}
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-6 py-8">
         <AnimatePresence mode="wait">
 
           {/* ── FORM state ── */}
@@ -487,10 +487,10 @@ export default function Numerology() {
               exit={{ opacity: 0, y: -16 }}
             >
               {/* top bar */}
-              <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center justify-between  mb-5">
                 <div>
                   <p className="text-sm text-stone-500 uppercase tracking-wider mb-0.5">Reading for</p>
-                  <p className="text-2xl font-bold text-orange-300">{name}</p>
+                  <p className="text-2xl font-bold text-orange-600">{name}</p>
                   <p className="text-sm text-stone-500">{dob}</p>
                 </div>
                 <button
