@@ -64,8 +64,8 @@ const AboutUs = () => {
               <motion.img
                 src={aboutImg}
                 alt="Experienced Astrologer"
-                className="w-full h-[300px]  md:h-[400px] max-w-full mx-auto rounded-lg object-cover shadow-md"
-                style={{ aspectRatio: '3/5', objectPosition: 'top' }}
+                className="w-full h-[300px] md:h-[400px] max-w-full mx-auto rounded-lg object-cover shadow-md"
+                style={{ objectPosition: 'top' }}
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 20 }}
               />
