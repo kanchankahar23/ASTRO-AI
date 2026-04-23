@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios'
+import bannerImg from '../../assets/kundalimatching.jpg'
 
 const KundaliMatching = () => {
   const [male, setMale] = useState({ name: '', dob: '', time: '', place: '' })
@@ -14,8 +15,7 @@ const KundaliMatching = () => {
     else setFemale(prev => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
     if (!male.name || !male.dob || !female.name || !female.dob) {
       setError('Please fill all required fields!')
       return
@@ -47,16 +47,20 @@ const KundaliMatching = () => {
 
   return (
     <>
-      {/* Hero Section */}
-      <div className="relative h-72 md:h-80 flex items-center justify-center bg-gray-900">
-        <div className="relative z-10 text-center text-white">
-          <h1 className="text-3xl md:text-5xl font-bold">
-            Kundali <span className="text-orange-400">Matching</span>
-          </h1>
-          <p className="mt-3 text-gray-200">
-            Discover compatibility with AI-powered astrology
-          </p>
-        </div>
+      {/* Banner Section */}
+      <div className="relative h-72 md:h-80 flex flex-col items-center justify-center overflow-hidden">
+        <img
+          src={bannerImg}
+          alt="Kundali Matching Banner"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/60" />
+        <h1 className="relative z-10 text-2xl md:text-4xl font-semibold text-white text-center">
+          Home / <span className="text-orange-400">Kundali Matching</span>
+        </h1>
+        <p className="relative z-10 mt-3 text-center text-gray-200 md:text-lg px-4 max-w-xl">
+          Find your perfect match through ancient Vedic Ashtakoota Guna Milan.
+        </p>
       </div>
 
       {/* Form Section */}
@@ -72,7 +76,7 @@ const KundaliMatching = () => {
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-10">
+          <div className="grid md:grid-cols-2 gap-10">
 
             {/* Male Section */}
             <div className="bg-gray-50 p-6 rounded-xl shadow-sm">
@@ -110,16 +114,17 @@ const KundaliMatching = () => {
               ))}
             </div>
 
-            {/* Button */}
+            {/* Submit Button */}
             <div className="md:col-span-2 text-center mt-6">
               <button
-                type="submit"
+                onClick={handleSubmit}
                 className="bg-orange-500 text-white px-10 py-3 rounded-md text-lg font-medium shadow-md hover:scale-105 transition duration-300"
               >
                 {loading ? 'Matching...' : 'Match Kundali'}
               </button>
             </div>
-          </form>
+
+          </div>
         </div>
       </div>
 
@@ -131,7 +136,7 @@ const KundaliMatching = () => {
             {/* Score */}
             <div className={`text-center p-8 rounded-2xl border-2 mb-8 ${getBgClass(result.compatibility.color)}`}>
               <h2 className="text-3xl font-bold text-[#0a0a5f] mb-2">
-                {result.male.name} <span className='text-5xl'>💓</span> {result.female.name}
+                {result.male.name} <span className="text-5xl">💓</span> {result.female.name}
               </h2>
               <div className={`text-6xl font-bold my-4 ${getColorClass(result.compatibility.color)}`}>
                 {result.totalScore}/{result.maxScore}
