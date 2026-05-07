@@ -8,9 +8,9 @@ import errorHandler from './middleware/errorHandler.js';
 // Import Routes
 import chatRoutes from './routes/chatRoutes.js';
 import horoscopeRoutes from './routes/horoscopeRoutes.js';
-import panchangRoutes from './routes/panchangRoutes.js';
+// import panchangRoutes from './routes/panchangRoutes.js';
 import kundaliRoutes from './routes/kundaliRoutes.js';
-
+import kundaliMatchingRoutes from './routes/kundaliMatchingRoutes.js';
 // Load environment variables
 dotenv.config();
 
@@ -31,8 +31,9 @@ app.use(express.json()); // Parse incoming JSON body
 // ─── Routes ─────────────────────────────────────
 app.use('/api/chat', chatRoutes);
 app.use('/api/horoscope', horoscopeRoutes);
-app.use('/api/panchang', panchangRoutes);
+// app.use('/api/panchang', panchangRoutes);
 app.use('/api/kundali', kundaliRoutes);
+app.use('/api/kundali-matching', kundaliMatchingRoutes);
 
 // ─── Health Check Route ──────────────────────────
 app.get('/', (req, res) => {
