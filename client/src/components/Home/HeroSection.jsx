@@ -1,46 +1,14 @@
-// ============================================================
-// 📦 IMPORTS
-// ============================================================
-
 import { motion } from 'framer-motion';
-// motion → special HTML elements (motion.div, motion.button, motion.img)
-// that have built-in animation superpowers (whileHover, whileTap, animate, etc.)
-
 import { useInView } from 'framer-motion';
-// useInView → a hook that tells us if an element is currently
-// visible in the browser viewport (used for scroll-triggered animations)
-
 import { useRef } from 'react';
-// useRef → creates a reference to a DOM element
-// useInView needs this ref to "watch" a specific element on screen
 
 import bgImg from '../../assets/astrology-banner.jpg';
-// Background image for the hero section
-// Imported as module so Vite handles the correct path in production build
-// (hardcoded strings like "/assets/..." break after Vite builds)
-
 import aiAstro from '../../assets/ai-astro.jpg';
-// The AI astrologer image shown on the right side of the hero
-
 import { useUser } from '@clerk/clerk-react';
-// useUser → gives us { isSignedIn } to check if user is logged in
-// Used to show different buttons and navigate to different pages
-
 import { useNavigate } from 'react-router-dom';
-// useNavigate → programmatic navigation (redirect user without clicking a Link)
-// Used inside button onClick handlers
 
-
-// ============================================================
-// 🎯 REUSABLE ANIMATED WRAPPER COMPONENT
-// ============================================================
 
 const AnimateOnScroll = ({ children, delay = 0, direction = 'up' }) => {
-// children  → whatever JSX is wrapped inside this component
-// delay     → how many seconds to wait before starting animation (stagger effect)
-// direction → which direction the element slides in from (up/down/left/right)
-// Both have DEFAULT values → safe to use without passing them
-
   const ref = useRef(null);
   // Creates a ref — we'll attach this to the motion.div below
   // useInView needs this to know WHICH element to watch
