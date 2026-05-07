@@ -4,7 +4,6 @@ import kundali_banner from '../assets/globe.jpg'
 
 const Kundali = () => {
 
-
   const [formData, setFormData] = useState({
     name: '',
     dob: '',
@@ -15,16 +14,12 @@ const Kundali = () => {
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  console.log('Kundali loaded!')
-  console.log('formData:', formData)
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async () => {
-
-    console.log('Button clicked!')
-    console.log('formData:', formData)
     if (!formData.name || !formData.dob || !formData.time || !formData.place || !formData.gender) {
       setError('Please fill all fields!')
       return
@@ -34,6 +29,10 @@ const Kundali = () => {
     try {
       const res = await axios.post('http://localhost:5000/api/kundali', formData)
       setResult(res.data)
+      // ✅ Scroll to result smoothly
+      setTimeout(() => {
+        document.getElementById('kundali-result')?.scrollIntoView({ behavior: 'smooth' })
+      }, 300)
     } catch (err) {
       setError('Something went wrong. Please try again.')
     }
@@ -151,38 +150,53 @@ const Kundali = () => {
             onClick={handleSubmit}
             className="mt-6 w-full md:w-auto bg-orange-500 hover:bg-orange-600 font-semibold text-white px-10 py-3 rounded-lg transition"
           >
-            {loading ? 'Generating...' : 'Generate Kundali'}
+            {loading ? (
+              <span className="flex items-center gap-2">
+                <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                Generating...
+              </span>
+            ) : 'Generate Kundali ✨'}
           </button>
         </div>
 
-        {/* Result Section */}
+        {/* ✅ Result Section */}
         {result && (
-          <div className="mt-10 bg-white shadow-lg rounded-2xl p-6 md:p-10">
+          <div id="kundali-result" className="mt-10 bg-white shadow-lg rounded-2xl p-6 md:p-10">
+
+            {/* ✅ Cosmic Message */}
+            {result.message && (
+              <div className="mb-8 p-5 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl text-center">
+                <p className="text-orange-700 font-medium text-lg">✨ {result.message}</p>
+              </div>
+            )}
 
             {/* Header */}
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-orange-500">{result.name}'s Kundali</h2>
               <p className="text-gray-500 mt-1">{result.dob} | {result.time} | {result.place}</p>
+              <span className="inline-block mt-2 text-sm text-gray-400 bg-gray-100 px-3 py-1 rounded-full">
+                {result.gender}
+              </span>
             </div>
 
-            {/* Basic Info */}
+            {/* ✅ Basic Info — Zodiac, Rising, Moon, Nakshatra */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
               {[
-                { label: 'Zodiac Sign', value: result.zodiacSign },
-                { label: 'Rising Sign', value: result.risingSign },
-                { label: 'Moon Sign', value: result.moonSign },
-                { label: 'Nakshatra', value: result.nakshatra },
+                { label: '♈ Zodiac Sign',  value: result.zodiacSign  },
+                { label: '⬆️ Rising Sign',  value: result.risingSign  },
+                { label: '🌙 Moon Sign',    value: result.moonSign    },
+                { label: '⭐ Nakshatra',    value: result.nakshatra   },
               ].map((item) => (
-                <div key={item.label} className="bg-orange-50 rounded-xl p-4 text-center">
+                <div key={item.label} className="bg-orange-50 rounded-xl p-4 text-center border border-orange-100">
                   <p className="text-gray-500 text-sm">{item.label}</p>
                   <p className="text-orange-500 font-bold text-lg mt-1">{item.value}</p>
                 </div>
               ))}
             </div>
 
-            {/* Planets Table */}
+            {/* ✅ Planetary Positions Table */}
             <h3 className="text-xl font-bold text-gray-800 mb-4">🪐 Planetary Positions</h3>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mb-8">
               <table className="w-full text-sm text-left border rounded-xl overflow-hidden">
                 <thead className="bg-orange-500 text-white">
                   <tr>
@@ -194,10 +208,13 @@ const Kundali = () => {
                 </thead>
                 <tbody>
                   {result.planets.map((planet, index) => (
-                    <tr key={planet.name} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+                    <tr
+                      key={planet.name}
+                      className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}
+                    >
                       <td className="px-4 py-3 font-semibold">{planet.name}</td>
                       <td className="px-4 py-3">{planet.sign}</td>
-                      <td className="px-4 py-3">{planet.house}</td>
+                      <td className="px-4 py-3">House {planet.house}</td>
                       <td className="px-4 py-3">{planet.degree}°</td>
                     </tr>
                   ))}
@@ -205,14 +222,57 @@ const Kundali = () => {
               </table>
             </div>
 
-            {/* Predictions */}
-            <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* ✅ Predictions */}
+            <h3 className="text-xl font-bold text-gray-800 mb-4">🔮 Life Predictions</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {result.predictions.map((pred) => (
-                <div key={pred.area} className="bg-orange-50 rounded-xl p-5">
-                  <h4 className="font-bold text-orange-500 mb-2">{pred.area}</h4>
-                  <p className="text-gray-600 text-sm">{pred.prediction}</p>
+                <div key={pred.area} className="bg-orange-50 rounded-xl p-5 border border-orange-100">
+                  <h4 className="font-bold text-orange-500 mb-2 text-base">{pred.area}</h4>
+                  <p className="text-gray-600 text-sm leading-relaxed">{pred.prediction}</p>
                 </div>
               ))}
+            </div>
+
+            {/* ✅ Dasha Periods */}
+            {result.dasha && (
+              <div className="mb-8">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">🌀 Dasha Periods</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {result.dasha.map((d) => (
+                    <div
+                      key={d.planet}
+                      className="bg-orange-50 rounded-xl p-5 border border-orange-100 text-center"
+                    >
+                      <p className="text-orange-500 font-bold text-xl mb-1">🪐 {d.planet}</p>
+                      <p className="text-gray-700 font-medium text-sm">{d.period}</p>
+                      <p className="text-gray-400 text-xs mt-1">{d.years} years duration</p>
+                      <span className={`mt-3 inline-block text-xs px-3 py-1 rounded-full font-semibold ${
+                        d.effect.includes('Active')
+                          ? 'bg-orange-500 text-white'
+                          : d.effect.includes('Upcoming')
+                          ? 'bg-blue-100 text-blue-600'
+                          : 'bg-gray-100 text-gray-500'
+                      }`}>
+                        {d.effect}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* ✅ Generate Again Button */}
+            <div className="text-center mt-6">
+              <button
+                onClick={() => {
+                  setResult(null)
+                  setFormData({ name: '', dob: '', time: '', place: '', gender: '' })
+                  window.scrollTo({ top: 0, behavior: 'smooth' })
+                }}
+                className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-8 py-3 rounded-lg transition"
+              >
+                🔄 Generate New Kundali
+              </button>
             </div>
 
           </div>
