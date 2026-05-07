@@ -1,4 +1,10 @@
+// routes/kundaliRoutes.js
 import express from 'express';
+import { generateKundali } from '../controllers/kundaliController.js';
+
 const router = express.Router();
-router.get('/', (req, res) => res.json({ message: 'Kundali route working ✅' }));
+
+// POST /api/kundali
+router.post('/', generateKundali);
+
 export default router;
