@@ -189,6 +189,44 @@ const KundaliMatching = () => {
                 </tbody>
               </table>
             </div>
+            {/* ✅ Relationship Predictions */}
+{result.predictions && (
+  <div className="mt-8">
+    <h3 className="text-xl font-bold text-gray-800 mb-4">🔮 Relationship Predictions</h3>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {result.predictions.map((pred) => (
+        <div key={pred.area} className={`rounded-xl p-5 border ${getBgClass(result.compatibility.color)}`}>
+          <h4 className={`font-bold mb-2 text-base ${getColorClass(result.compatibility.color)}`}>
+            {pred.area}
+          </h4>
+          <p className="text-gray-600 text-sm leading-relaxed">{pred.prediction}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+)}
+
+{/* ✅ Summary */}
+{result.summary && (
+  <div className="mt-6 p-5 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl text-center">
+    <p className="text-orange-700 font-medium">✨ {result.summary}</p>
+  </div>
+)}
+
+{/* ✅ Reset Button */}
+<div className="text-center mt-8">
+  <button
+    onClick={() => {
+      setResult(null)
+      setMale({ name: '', dob: '', time: '', place: '' })
+      setFemale({ name: '', dob: '', time: '', place: '' })
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }}
+    className="bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium px-8 py-3 rounded-lg transition"
+  >
+    🔄 Match Again
+  </button>
+</div>
 
           </div>
         </div>
