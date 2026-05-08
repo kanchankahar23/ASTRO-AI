@@ -28,31 +28,43 @@ const AI_Kaira = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
     }, [messages])
 
-    const sendMessage = async () => {
-        if (!input.trim()) return
-        const userMessage = input.trim()
-        setInput('')
-        setMessages(prev => [...prev, { role: 'user', text: userMessage }])
-        setLoading(true)
+  const sendMessage = async () => {
+    if (!input.trim()) return
+    const userMessage = input.trim()
+    setInput('')
 
-        try {
-            const history = messages.slice(1).map(msg => ({
-                role: msg.role === 'ai' ? 'model' : 'user',
-                parts: [{ text: msg.text }]
+    // Add user message to UI
+    setMessages(prev => [...prev, { role: 'user', text: userMessage }])
+    setLoading(true)
+
+    try {
+        // ✅ Build chat history in correct format for backend
+        const history = messages
+            .slice(1) // skip Kaira's first welcome message
+            .map(msg => ({
+                role: msg.role === 'ai' ? 'assistant' : 'user',
+                content: msg.text
             }))
-            const res = await axios.post('http://localhost:5000/api/ai/chat', {
-                message: userMessage,
-                history
-            })
-            setMessages(prev => [...prev, { role: 'ai', text: res.data.reply }])
-        } catch (err) {
-            setMessages(prev => [...prev, {
-                role: 'ai',
-                text: 'Sorry, I am having trouble connecting. Please try again! 🙏'
-            }])
-        }
-        setLoading(false)
+
+        const res = await axios.post('http://localhost:5000/api/AI_Kaira', {
+            message: userMessage,
+            history  // ✅ send history for memory
+        })
+
+        setMessages(prev => [...prev, {
+            role: 'ai',
+            text: res.data.reply
+        }])
+
+    } catch (err) {
+        setMessages(prev => [...prev, {
+            role: 'ai',
+            text: '✨ The cosmic energies are momentarily disrupted. Please try again dear soul! 🙏'
+        }])
     }
+
+    setLoading(false)
+}
 
     const handleKeyPress = (e) => {
         if (e.key === 'Enter') sendMessage()

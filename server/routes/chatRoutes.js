@@ -1,4 +1,10 @@
+// routes/chatRoutes.js
 import express from 'express';
+import { chatWithKaira } from '../controllers/chatController.js';
+
 const router = express.Router();
-router.get('/', (req, res) => res.json({ message: 'Chat route working ✅' }));
+
+// POST /api/ai/chat
+router.post('/chat', chatWithKaira);
+
 export default router;

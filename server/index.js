@@ -29,7 +29,7 @@ app.use(cors({
 app.use(express.json()); // Parse incoming JSON body
 
 // ─── Routes ─────────────────────────────────────
-app.use('/api/chat', chatRoutes);
+app.use('/api/AI_Kaira', chatRoutes);
 app.use('/api/horoscope', horoscopeRoutes);
 // app.use('/api/panchang', panchangRoutes);
 app.use('/api/kundali', kundaliRoutes);
