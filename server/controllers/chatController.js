@@ -1,9 +1,4 @@
-// controllers/chatController.js
 import Groq from 'groq-sdk';
-
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-console.log(groq)
-
 // ── Kaira's Personality ───────────────────────────────────────────
 const KAIRA_SYSTEM_PROMPT = `
 You are Kaira, an ancient and wise AI astrologer created by ASTRO-AI.
@@ -54,9 +49,12 @@ RESTRICTIONS:
 - Keep responses medium length — 3 to 5 sentences minimum, not too long
 `;
 
-// ── POST /api/ai/chat ─────────────────────────────────────────────
+// ── POST /api/ai─────────────────────────────────────────────
 export const chatWithKaira = async (req, res) => {
   try {
+    // ✅ Initialize INSIDE the function — env is loaded by now
+    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+
     const { message, history = [] } = req.body;
 
     if (!message || !message.trim()) {
@@ -66,33 +64,27 @@ export const chatWithKaira = async (req, res) => {
       });
     }
 
-    // ✅ Build conversation — system + history + new message
-    // Convert frontend history format to Groq format
     const formattedHistory = history.map(msg => ({
       role: msg.role === 'model' ? 'assistant' : 'user',
       content: msg.parts?.[0]?.text || msg.content || ''
-    })).filter(msg => msg.content); // remove empty
+    })).filter(msg => msg.content);
 
     const messages = [
-      { role: 'system',    content: KAIRA_SYSTEM_PROMPT },
+      { role: 'system', content: KAIRA_SYSTEM_PROMPT },
       ...formattedHistory,
-      { role: 'user',      content: message },
+      { role: 'user', content: message },
     ];
 
-    // ✅ Call Groq API
     const completion = await groq.chat.completions.create({
-      model:       'llama3-8b-8192',
+      model: 'llama3-8b-8192',
       messages,
-      max_tokens:  500,
-      temperature: 0.8, // creative but controlled
+      max_tokens: 500,
+      temperature: 0.8,
     });
 
     const reply = completion.choices[0].message.content;
 
-    res.status(200).json({
-      success: true,
-      reply,
-    });
+    res.status(200).json({ success: true, reply });
 
   } catch (error) {
     console.error('Kaira Error:', error.message);
