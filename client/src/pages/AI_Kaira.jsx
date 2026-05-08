@@ -46,7 +46,7 @@ const AI_Kaira = () => {
                 content: msg.text
             }))
 
-        const res = await axios.post('http://localhost:5000/api/AI_Kaira', {
+        const res = await axios.post('http://localhost:5000/api/ai/chat', {
             message: userMessage,
             history  // ✅ send history for memory
         })
