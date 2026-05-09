@@ -203,7 +203,7 @@ const AI_Kaira = () => {
                 ? `[User Info: Name=${kundaliInfo.name}, DOB=${kundaliInfo.dob}, Time=${kundaliInfo.time}, Place=${kundaliInfo.place}, Zodiac=${getZodiac(kundaliInfo.dob)}] User says: ${userMessage}`
                 : userMessage
 
-            const res = await axios.post('http://${import.meta.env.VITE_API_URL}/api/ai/chat', {
+            const res = await axios.post(`http://${import.meta.env.VITE_API_URL}/api/ai/chat`, {
                 message: contextMessage,
                 history
             })
