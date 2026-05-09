@@ -15,7 +15,10 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: 'https://astro-ai-se6b.on.com',
+  origin: [
+    'https://astro-ai-dev.vercel.app',
+    'http://localhost:5173',  // for local development
+  ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
