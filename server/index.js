@@ -15,7 +15,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: 'https://astro-ai-se6b.onrender.com',
+  origin: 'https://astro-ai-se6b.on.com',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
