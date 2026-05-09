@@ -1,51 +1,36 @@
-﻿# 🔮 ASTRO AI
+# 🔭 ASTRO-AI — AI-Powered Astrology Platform
 
-> An intelligent full-stack astrology platform powered by AI — built with the MERN stack and Clerk authentication.
-
-![Astro AI Banner](image.png)
+> A full-stack MERN application that blends traditional astrology with modern AI to deliver personalized horoscopes, birth charts, zodiac insights, and an intelligent astrology chatbot.
 
 ---
 
-## 📌 About The Project
+## 📌 Overview
 
-**ASTRO AI** is a modern astrology web application that combines ancient Vedic astrology with cutting-edge AI technology. Users can generate their Kundali (birth chart), check compatibility through Kundali Matching, read daily/weekly/yearly horoscopes, and chat with **Kaira AI** — an intelligent astrology assistant powered by Groq LLaMA.
+**AstroAI** is an MCA major project built on the MERN stack (MongoDB, Express, React, Node.js). It integrates Google Gemini and Groq AI APIs to generate personalized astrology content — including daily horoscopes, birth chart readings, compatibility reports, and a multi-turn conversational astrology assistant.
 
 ---
 
 ## ✨ Features
 
-- 🔮 **Free Kundali Generation** — Get detailed birth chart with planetary positions and predictions
-- 💑 **Kundali Matching** — Check compatibility with Guna Milan scoring (out of 36)
-- 📅 **Horoscope Forecasts** — Daily, Weekly and Yearly horoscopes for all 12 zodiac signs
-- 🤖 **Kaira AI Chatbot** — Real-time AI astrology assistant powered by Groq LLaMA
-- 🔐 **Authentication** — Secure login/signup with Clerk
-- 🌙 **Dark Mode** — Toggle between light and dark themes
-- 📱 **Responsive Design** — Works on all devices
+- 🔮 **AI Horoscope Generation** — Daily horoscopes generated per zodiac sign using Gemini / Groq
+- 🪐 **Birth Chart Calculator** — Compute sun, moon, and rising signs from date, time, and place of birth
+- 💬 **Astrology Chatbot** — Context-aware, multi-turn AI chat powered by Gemini / Groq
+- ♈ **Zodiac Browser** — Explore all 12 signs with traits, elements, ruling planets, and compatibility
+- 👤 **User Profiles** — Save horoscope history, birth charts, and chat sessions
+- 🔐 **Clerk Authentication** — Secure sign-up / sign-in with social login, managed sessions, and protected routes via Clerk
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠 Tech Stack
 
-### Frontend
-| Technology | Purpose |
-|-----------|---------|
-| React 18 + Vite | Frontend framework |
-| Tailwind CSS | Styling |
-| Framer Motion | Animations |
-| React Router DOM | Client-side routing |
-| Axios | API calls |
-| Clerk | Authentication |
-| Lucide React | Icons |
-
-### Backend
-| Technology | Purpose |
-|-----------|---------|
-| Node.js | Runtime |
-| Express.js | Backend framework |
-| MongoDB + Mongoose | Database |
-| Groq SDK | AI chatbot (LLaMA) |
-| dotenv | Environment variables |
-| CORS | Cross-origin requests |
+| Layer | Technology |
+|---|---|
+| Frontend | React 18 + Vite, Tailwind CSS, React Router DOM, Axios |
+| Backend | Node.js, Express.js |
+| Database | MongoDB Atlas (Mongoose ODM) |
+| Auth | Clerk (managed auth, social login, session handling) |
+| AI APIs | Google Gemini API, Groq API |
+| Deployment | Vercel (frontend), Render (backend) |
 
 ---
 
@@ -53,54 +38,19 @@
 
 ```
 ASTRO-AI/
-├── client/                     # React Frontend
-│   ├── public/
-│   └── src/
-│       ├── assets/             # Images, SVGs
-│       ├── components/
-│       │   ├── Navbar/
-│       │   ├── Footer/
-│       │   └── Home/
-│       │       ├── HeroSection.jsx
-│       │       ├── HoroscopeSection.jsx
-│       │       ├── ServicesSection.jsx
-│       │       └── AboutSection.jsx
-│       ├── context/            # Global state
-│       ├── pages/
-│       │   ├── Home.jsx
-│       │   ├── Horoscope.jsx
-│       │   ├── Contact.jsx
-│       │   ├── SignInPage.jsx
-│       │   ├── SignUpPage.jsx
-│       │   ├── AI_Kaira.jsx
-│       │   └── Services/
-│       │       ├── Kundali.jsx
-│       │       ├── KundaliMatching.jsx
-│       │       ├── Numerology.jsx
-│       │       ├── Panchang.jsx
-│       │       └── Calculator.jsx
-│       ├── App.jsx
-│       ├── AppRoutes.jsx
-│       └── main.jsx
-│
-├── server/                     # Node.js Backend
-│   ├── config/
-│   │   └── db.js              # MongoDB connection
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   │   └── Horoscope.js
-│   ├── routes/
-│   │   ├── horoscopeRoutes.js
-│   │   ├── kundaliRoutes.js
-│   │   ├── kundaliMatchingRoutes.js
-│   │   └── aiRoutes.js
-│   ├── seedHoroscope.js
-│   ├── .env
-│   └── index.js
-│
-├── ER DIAGRAM.md
-├── DATA FLOW DIAGRAM.MD
+├── client/                  # React + Vite frontend
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/           # Route-level page components
+│   │   └── ...
+│   └── package.json
+├── server/                  # Express.js backend
+│   ├── routes/              # API route handlers
+│   ├── models/              # Mongoose schemas
+│   ├── middleware/          # Auth and error middleware
+│   └── ...
+├── DATA FLOW DIAGRAM.MD     # System DFD (Level 0, 1, 2)
+├── ER DIAGRAM.md            # Database entity relationships
 └── README.md
 ```
 
@@ -110,120 +60,167 @@ ASTRO-AI/
 
 ### Prerequisites
 
-Make sure you have these installed:
 - Node.js (v18+)
-- MongoDB (local or Atlas)
-- Git
+- MongoDB Atlas account
+- [Clerk](https://clerk.com) account (for auth)
+- Google Gemini API key and/or Groq API key
 
-### Installation
+### 1. Clone the repository
 
-**1. Clone the repository**
 ```bash
 git clone https://github.com/kanchankahar23/ASTRO-AI.git
 cd ASTRO-AI
 ```
 
-**2. Setup Backend**
+### 2. Set up the backend
+
 ```bash
 cd server
 npm install
 ```
 
-Create `.env` file in `server/` folder:
+Create a `.env` file in the `server/` directory:
+
 ```env
 PORT=5000
-MONGO_URI=mongodb://localhost:27017/astrobuddy
-JWT_SECRET=your_jwt_secret_key
+MONGO_URI=your_mongodb_atlas_connection_string
+CLERK_SECRET_KEY=your_clerk_secret_key
+GEMINI_API_KEY=your_gemini_api_key
 GROQ_API_KEY=your_groq_api_key
 ```
 
-Seed the database:
-```bash
-node seedHoroscope.js
-```
-
 Start the server:
+
 ```bash
 npm run dev
 ```
 
-**3. Setup Frontend**
+### 3. Set up the frontend
+
 ```bash
 cd ../client
 npm install
 ```
 
-Create `.env` file in `client/` folder:
+Create a `.env` file in the `client/` directory:
+
 ```env
+VITE_API_URL=http://localhost:5000
 VITE_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 ```
 
 Start the frontend:
+
 ```bash
 npm run dev
 ```
 
-**4. Open in browser**
+The app will be available at `http://localhost:5173`.
+
+---
+
+## 🗄 Database Schema
+
+The platform uses five MongoDB collections:
+
+| Collection | Purpose |
+|---|---|
+| `users` | Account info, zodiac sign, date of birth |
+| `horoscopes` | AI-generated horoscope text per user/sign/date |
+| `birth_charts` | Sun, moon, and rising sign data per user |
+| `chat_histories` | Multi-turn chatbot message history per user |
+| `zodiac_signs` | Seeded lookup data for all 12 signs |
+
+See [`ER DIAGRAM.md`](./ER%20DIAGRAM.md) for full field-level schema and relationships.
+
+---
+
+## 🔄 Data Flow
+
+The system follows a clean 3-tier architecture:
+
 ```
-http://localhost:5173
+User (Browser)
+    ↕  HTTP / Axios
+React Frontend (Vite + Clerk)
+    ↕  REST API + Clerk session token
+Express Backend (Node.js + Clerk middleware)
+    ↕                    ↕
+MongoDB Atlas      Gemini / Groq AI
 ```
 
----
+Key API flows:
+- **Auth** — Handled entirely by Clerk; the frontend uses `<ClerkProvider>` and hooks (`useUser`, `useAuth`); the backend verifies Clerk session tokens via middleware
+- **Horoscope** — Validated sign + date → prompt built → Gemini/Groq called → result saved to DB and returned
+- **Chatbot** — Full conversation history sent with each request for context-aware responses
 
-## 🔑 Environment Variables
-
-### Server (`server/.env`)
-| Variable | Description |
-|----------|-------------|
-| `PORT` | Server port (default: 5000) |
-| `MONGO_URI` | MongoDB connection string |
-| `JWT_SECRET` | JWT secret key |
-| `GROQ_API_KEY` | Groq API key for AI chatbot |
-
-### Client (`client/.env`)
-| Variable | Description |
-|----------|-------------|
-| `VITE_CLERK_PUBLISHABLE_KEY` | Clerk publishable key |
+See [`DATA FLOW DIAGRAM.MD`](./DATA%20FLOW%20DIAGRAM.MD) for Level 0, 1, and 2 DFDs.
 
 ---
 
-## 📡 API Endpoints
+## 🔌 API Endpoints
 
-### Horoscope
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/horoscope/:type/:sign` | Get horoscope by type and sign |
+### Auth
 
-### Kundali
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/kundali` | Generate Kundali birth chart |
+Authentication is fully managed by **Clerk**. There are no custom `/api/auth` routes — login, registration, session management, and social login are all handled on the frontend via Clerk's React components and hooks. The backend uses Clerk's Express middleware to verify session tokens on protected routes.
 
-### Kundali Matching
+### Horoscopes
 | Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/kundali-matching` | Check compatibility |
+|---|---|---|
+| POST | `/api/horoscope` | Generate AI horoscope (auth required) |
+| GET | `/api/horoscope/history` | Get saved horoscopes for current user |
 
-### AI Kaira
+### Birth Charts
 | Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/ai/chat` | Chat with Kaira AI |
+|---|---|---|
+| POST | `/api/birthchart` | Create a birth chart (auth required) |
+| GET | `/api/birthchart` | Get birth charts for current user |
+
+### Chatbot
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/chat` | Send a message to the astrology chatbot |
+| GET | `/api/chat/history` | Retrieve chat history |
+
+### Zodiac
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/zodiac` | Get all 12 zodiac signs |
+| GET | `/api/zodiac/:sign` | Get details for a specific sign |
 
 ---
+
+## 🤖 AI Integration
+
+The platform supports two AI backends — switch via the `GROQ_API_KEY` / `GEMINI_API_KEY` environment variables:
+
+- **Google Gemini** — Primary AI for horoscope generation and chatbot responses
+- **Groq** — Fast LLM inference alternative (lower latency)
+
+Prompts are dynamically constructed per request with user context, zodiac sign, and date to ensure personalized, relevant responses.
+
+---
+
+## 📊 Diagrams
+
+- [📐 ER Diagram](./ER%20DIAGRAM.md) — MongoDB collections, fields, constraints, and relationships
+- [🔄 Data Flow Diagram](./DATA%20FLOW%20DIAGRAM.MD) — Context (L0), system overview (L1), and AI horoscope flow (L2)
+
+---
+
+## 🎓 Academic Context
+
+This project was developed as a major project for the **MCA (Master of Computer Applications)** program. It demonstrates full-stack development skills including REST API design, NoSQL database modeling, third-party auth with Clerk, and AI API integration.
+
+---
+
+## 👤 Author
+
+**Kanchan Kahar**
+[GitHub @kanchankahar23](https://github.com/kanchankahar23)
+
+---
+
 ## 📄 License
 
-This project is licensed under the MIT License.
-
----
-
-## 🙏 Acknowledgements
-
-- [Clerk](https://clerk.com) — Authentication
-- [Groq](https://groq.com) — AI API
-- [MongoDB Atlas](https://www.mongodb.com/atlas) — Database
-- [Tailwind CSS](https://tailwindcss.com) — Styling
-- [Framer Motion](https://www.framer.com/motion) — Animations
-- [Vite](https://vitejs.dev) — Build tool
-
----
-
+This project is for academic purposes. All rights reserved by the author.
