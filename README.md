@@ -6,7 +6,7 @@
 
 ## 📌 Overview
 
-**AstroAI** is an MCA major project built on the MERN stack (MongoDB, Express, React, Node.js). It integrates Google Gemini and Groq AI APIs to generate personalized astrology content — including daily horoscopes, birth chart readings, compatibility reports, and a multi-turn conversational astrology assistant.
+**AstroAI** is a full-stack web application built on the MERN stack (MongoDB, Express, React, Node.js). It integrates Google Gemini and Groq AI APIs to generate personalized astrology content — including daily horoscopes, birth chart readings, compatibility reports, and a multi-turn conversational astrology assistant.
 
 ---
 
@@ -210,7 +210,7 @@ Prompts are dynamically constructed per request with user context, zodiac sign, 
 
 ## 🎓 Academic Context
 
-This project was developed as a major project for the **MCA (Master of Computer Applications)** program. It demonstrates full-stack development skills including REST API design, NoSQL database modeling, third-party auth with Clerk, and AI API integration.
+This project was developed as part of an academic program. It demonstrates full-stack development skills including REST API design, NoSQL database modeling, third-party auth with Clerk, and AI API integration.
 
 ---
 
