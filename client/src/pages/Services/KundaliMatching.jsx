@@ -23,7 +23,7 @@ const KundaliMatching = () => {
     setError('')
     setLoading(true)
     try {
-      const res = await axios.post('http://${import.meta.env.VITE_API_URL}/api/kundali-matching', { male, female })
+      const res = await axios.post('${import.meta.env.VITE_API_URL}/api/kundali-matching', { male, female })
       setResult(res.data)
     } catch (err) {
       setError('Something went wrong. Please try again.')
