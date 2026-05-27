@@ -54,7 +54,7 @@ const Dashboard = () => {
   const fetchHoroscope = async () => {
     try {
       const type = horoscopeType === 'Today' ? 'daily' : horoscopeType === 'Weekly' ? 'weekly' : 'yearly'
-      const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/horoscope/${type}/${selectedSign}`)
+      const res = await axios.get(`http://localhost:5000/api/horoscope/${type}/${selectedSign}`)
       setHoroscope(res.data)
     } catch (err) {
       console.error(err)
